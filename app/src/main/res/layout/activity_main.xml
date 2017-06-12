@@ -16,25 +16,32 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="燃SPACE"
         android:gravity="center"
         android:id="@+id/burning"
+        android:text="燃SPACE"
+        style="@style/home"
+        android:textColor="@color/selector_color"
         />
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="燃SPACE"
         android:gravity="center"
+        android:text="活动"
         android:id="@+id/activity"
+        style="@style/series"
+        android:textColor="@color/selector_color"
+
         />
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="我的"
+        android:textColor="@color/selector_color"
         android:gravity="center"
         android:id="@+id/my"
+        style="@style/my"
         />
     </LinearLayout>
     <FrameLayout
