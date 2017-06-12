@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.ourproject.EventFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:background="#FFFFFF"
+            android:textSize="18sp"
+            android:id="@+id/event_city_but"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_title_but"
+            android:text="活动"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_past_tv"
+            android:text="往期"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10sp"
+            android:textColor="#000000"
+            android:visibility="invisible"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_newest_tv"
+            android:text="最新"
+            android:layout_toLeftOf="@id/event_past_tv"
+            android:layout_margin="10sp"
+            android:visibility="invisible"
+            android:textColor="#000000"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:id="@+id/event_newest_but"
+            android:text="最新"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/event_past_but"
+
+            android:text="往期"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
