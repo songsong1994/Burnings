@@ -7,22 +7,24 @@
     android:gravity="bottom"
     tools:context="com.example.administrator.burning.MainActivity">
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/layout_main">
-    <Button
+        android:orientation="horizontal"
+        android:id="@+id/layout_main"
+        android:background="#0f0">
+    <RadioButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:id="@+id/burning"
+        android:checked="true"
         android:text="燃SPACE"
         style="@style/home"
-        android:textColor="@color/selector_color"
         />
-    <Button
+    <RadioButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -30,24 +32,24 @@
         android:text="活动"
         android:id="@+id/activity"
         style="@style/series"
-        android:textColor="@color/selector_color"
 
         />
-    <Button
+    <RadioButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="我的"
-        android:textColor="@color/selector_color"
         android:gravity="center"
         android:id="@+id/my"
         style="@style/my"
+
         />
-    </LinearLayout>
+    </RadioGroup>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/layout_for_fragment"
-        android:layout_above="@id/layout_main"/>
+        android:layout_above="@id/layout_main"
+        />
 
 </RelativeLayout>
