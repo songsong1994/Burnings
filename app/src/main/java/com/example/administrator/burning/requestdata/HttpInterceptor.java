@@ -1,4 +1,4 @@
-package com.example.administrator.burning;
+package com.example.administrator.burning.requestdata;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
