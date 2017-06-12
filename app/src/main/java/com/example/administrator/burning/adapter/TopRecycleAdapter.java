@@ -15,13 +15,13 @@ import java.util.List;
  * Created by Administrator on 2017/6/12.
  */
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.HomeViewHolder> {
+public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.HomeViewHolder> {
 
     private List<String> data;
     private Context context;
-    private TextView text;
 
-    public RecycleAdapter(List<String> data, Context context) {
+
+    public TopRecycleAdapter(List<String> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -47,7 +47,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.HomeView
         public TextView text;
         public HomeViewHolder(View itemView) {
             super(itemView);
-            text = ((TextView) itemView.findViewById(R.id.tv));
+            text = ((TextView) itemView.findViewById(R.id.tvs));
         }
     }
 }
