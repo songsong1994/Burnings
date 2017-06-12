@@ -14,6 +14,7 @@ public interface Server {
     @GET("events/booking")
     Call<Top> getdata();
 
-    @GET("/events/history")
+    @GET("events/history")
     Call<History> gethistory();
+
 }
