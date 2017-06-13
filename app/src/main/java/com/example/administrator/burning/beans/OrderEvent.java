@@ -3,6 +3,7 @@ package com.example.administrator.burning.beans;
 import java.util.List;
 
 /**
+ * 预定活动实体类
  * Created by WeihuaWang on 2017/6/12.
  */
 

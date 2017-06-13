@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.administrator.burning.fragment.HomeFragment;
 import com.example.administrator.burning.requestdata.APP;
-import com.example.administrator.burning.requestdata.History;
+import com.example.administrator.burning.beans.History;
 
 import retrofit2.Call;
 import retrofit2.Callback;
