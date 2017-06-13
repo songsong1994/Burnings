@@ -14,7 +14,6 @@ import com.example.administrator.burning.beans.History;
 
 import java.util.List;
 
-import it.sephiroth.android.library.picasso.Picasso;
 
 
 /**
@@ -59,7 +58,6 @@ public class PastFragmentAdapter extends BaseAdapter {
         else{
             viewHolder= (ViewHolder) convertView.getTag();
         }
-        Picasso.with(context).load(listBean.getPhoto().getUrl()).into(viewHolder.icon);
         viewHolder.tv1_name.setText(listBean.getTopic());
         viewHolder.tv3_author.setText(listBean.getTeacher().getName());
         viewHolder.tv4_location.setText(listBean.getLocation().getName());

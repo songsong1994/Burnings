@@ -1,5 +1,6 @@
 package com.example.administrator.burning.requestdata;
 
+import com.example.administrator.burning.bean.Space;
 import com.example.administrator.burning.beans.History;
 import com.example.administrator.burning.beans.TeacherEvents;
 
@@ -21,7 +22,10 @@ public interface Server {
     @GET("events/history?eetpn=3")
     Call<History> gethistory();
 
+    //教师个人页面
     @GET("users/148ac21f187cdcbc/events")
     Call<TeacherEvents> getevents();
 
+    @GET("home")
+    Call<Space>getSpace();
 }
