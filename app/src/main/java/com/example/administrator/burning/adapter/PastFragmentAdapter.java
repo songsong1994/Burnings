@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,10 +59,23 @@ public class PastFragmentAdapter extends BaseAdapter {
         else{
             viewHolder= (ViewHolder) convertView.getTag();
         }
+        Uri uri=Uri.parse(listBean.getPhoto().getUrl());
+        viewHolder.icon.setImageURI(uri);
         viewHolder.tv1_name.setText(listBean.getTopic());
         viewHolder.tv3_author.setText(listBean.getTeacher().getName());
         viewHolder.tv4_location.setText(listBean.getLocation().getName());
         viewHolder.tv5_time.setText(listBean.getStartTime());
+        if(listBean.getPosts().size()!=0){
+            for(int i=0;i<listBean.getPosts().size();i++){
+                ImageView imageView=new ImageView(context);
+                Uri uri1=Uri.parse(listBean.getPosts().get(i).getPhoto().getUrl());
+                imageView.setImageURI(uri1);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(30, 30);
+                imageView.setLayoutParams(params);
+                viewHolder.layout.addView(imageView);
+            }
+        }
+
 
         return convertView;
     }
