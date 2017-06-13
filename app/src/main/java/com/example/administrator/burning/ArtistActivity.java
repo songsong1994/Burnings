@@ -1,46 +1,74 @@
 package com.example.administrator.burning;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
+import com.example.administrator.burning.beans.TeacherIntroduce;
 import com.example.administrator.burning.fragment.ArtistFragment;
+import com.example.administrator.burning.requestdata.APP;
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-public class ArtistActivity extends AppCompatActivity {
-//    private RecyclerView recyclerView;
-//    private ArtistAdapter adapter;
-//    private APP app;
-//    private List<TeacherEvents.DataBean.ListBean> list;
+public class ArtistActivity extends AppCompatActivity implements Callback<TeacherIntroduce> {
+    private APP app;
+    private TeacherIntroduce.DataBean data;
+    public SimpleDraweeView url,avatar;
+    public TextView friendnum,followerNum,eventnum,statusNum,artifactNum,nickname;
+    private View img;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.top_artist_view);
-//        recyclerView = (RecyclerView) findViewById(R.id.artist_listview);
-//        app = ((APP) getApplication());
-//        app.getServer().getevents().enqueue(this);
-
+        showInfo();
+        img.setAlpha(0.6f);
+        app = ((APP) getApplication());
+        app.getServer().getintroduce().enqueue(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.artist_top_framelayout,new ArtistFragment());
+        transaction.replace(R.id.artist_top_framelayout, new ArtistFragment());
         transaction.commit();
-//    @Override
-//    public void onResponse(Call<TeacherEvents> call, Response<TeacherEvents> response) {
-//        list = response.body().getData().getList();
 
-//        adapter = new ArtistAdapter(this,list);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
-//            @Override
-//            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-//                super.getItemOffsets(outRect, view, parent, state);
-//                outRect.set(0,20,0,20);
-//            }
-//        });
-//    }
+    }
 
-//    @Override
-//    public void onFailure(Call<TeacherEvents> call, Throwable t) {
-//
+    @Override
+    public void onResponse(Call<TeacherIntroduce> call, Response<TeacherIntroduce> response) {
+        data = response.body().getData();
+        Uri uri = Uri.parse(data.getBackgroundPhoto().getUrl().toString());
+        url.setImageURI(uri);
+        Uri uri1 = Uri.parse(data.getAvatar().toString());
+        avatar.setImageURI(uri1);
+        nickname.setText(data.getNickname().toString());
+        friendnum.setText(data.getFriendNum()+"");
+        followerNum.setText(data.getFollowerNum()+"");
+        eventnum.setText(data.getEventNum()+"");
+        statusNum.setText(data.getStatusNum()+"");
+        artifactNum.setText(data.getArtifactNum()+"");
+    }
+
+    @Override
+    public void onFailure(Call<TeacherIntroduce> call, Throwable t) {
+        t.printStackTrace();
+    }
+
+    public void showInfo(){
+        img = findViewById(R.id.introduce_bg_image);
+        url = (SimpleDraweeView) findViewById(R.id.introduce_bg_url);
+        avatar = (SimpleDraweeView)findViewById(R.id.artist_top_avatar);
+        nickname = (TextView) findViewById(R.id.introduce_nickname);
+        friendnum = (TextView) findViewById(R.id.introduce_friendNum);
+        followerNum = (TextView)findViewById(R.id.introduce_followerNum);
+        eventnum = (TextView) findViewById(R.id.introduce_eventnum);
+        statusNum = (TextView) findViewById(R.id.introduce_statusNum);
+        artifactNum = (TextView) findViewById(R.id.introduce_artifactNum);
+
     }
 }
