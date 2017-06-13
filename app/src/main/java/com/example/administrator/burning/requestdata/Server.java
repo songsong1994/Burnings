@@ -16,7 +16,7 @@ public interface Server {
     @GET("events/booking")
     Call<Top> getdata();
     //往期
-    @GET("events/history")
+    @GET("events/history?eetpn=3")
     Call<History> gethistory();
 
 }

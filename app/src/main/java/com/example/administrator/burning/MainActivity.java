@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.administrator.burning.fragment.EventFragment;
 import com.example.administrator.burning.fragment.HomeFragment;
 import com.example.administrator.burning.requestdata.APP;
 import com.example.administrator.burning.beans.History;
@@ -26,13 +27,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         view = (TextView) findViewById(R.id.main_text);
-        APP app= (APP) getApplication();
-        app.getServer().gethistory().enqueue(this);
         group = (RadioGroup) findViewById(R.id.layout_main);
         group.setOnCheckedChangeListener(this);
-
-
-
+        APP app = (APP) getApplication();
+        app.getServer().gethistory().enqueue(this);
     }
 
     @Override
@@ -40,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (checkedId) {
             case R.id.activity:
+                transaction.replace(R.id.layout_for_fragment,new EventFragment());
                 break;
             case R.id.my:
                 break;
@@ -52,11 +51,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onResponse(Call<History> call, Response<History> response) {
+        //int totalCount = response.body().getData().getTotalCount();
         view.setText(response.body().getData().getList().get(0).getPhoto().getUrl().toString());
     }
 
     @Override
     public void onFailure(Call<History> call, Throwable t) {
+        t.printStackTrace();
 
     }
 

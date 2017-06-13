@@ -63,9 +63,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/event_past_but"
-
             android:text="往期"/>
     </LinearLayout>
+    <FrameLayout
+        android:id="@+id/event_fragment_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
 
 
