@@ -41,7 +41,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         holder.drawname.setText(list.get(position).getTopic().toString());
         holder.authorname.setText(list.get(position).getTeacher().getName().toString());
         holder.date.setText(list.get(position).getStartTime().toString());
-        holder.site.setText(list.get(position).getLocation().getName());
+        holder.site.setText(list.get(position).getLocation().getName().toString());
 
     }
 

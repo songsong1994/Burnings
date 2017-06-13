@@ -31,6 +31,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
-    compile 'com.facebook.fresco:fresco:1.3.0'
 }
