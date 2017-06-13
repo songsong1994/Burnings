@@ -34,16 +34,21 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         return holder;
     }
 
+
     @Override
     public void onBindViewHolder(ArtistViewHolder holder, int position) {
-        Uri uri = Uri.parse(list.get(position).getPhoto().getUrl().toString());
-        holder.simpleDraweeView.setImageURI(uri);
-        holder.drawname.setText(list.get(position).getTopic().toString());
-        holder.authorname.setText(list.get(position).getTeacher().getName().toString());
-        holder.date.setText(list.get(position).getStartTime().toString());
-        holder.site.setText(list.get(position).getLocation().getName().toString());
+
+            Uri uri = Uri.parse(list.get(position).getPhoto().getUrl().toString());
+            holder.simpleDraweeView.setImageURI(uri);
+            holder.drawname.setText(list.get(position).getTopic().toString());
+            holder.authorname.setText(list.get(position).getTeacher().getName().toString());
+            holder.date.setText(list.get(position).getStartTime().toString());
+        if (list.get(position).getLocation().getName()!= null) {
+            holder.site.setText(list.get(position).getLocation().getName().toString());
+        }
 
     }
+
 
     @Override
     public int getItemCount() {
