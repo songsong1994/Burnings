@@ -1,6 +1,7 @@
 package com.example.administrator.burning.requestdata;
 
 import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.TeacherEvents;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -20,6 +21,7 @@ public interface Server {
     @GET("events/history?eetpn=3")
     Call<History> gethistory();
 
-
+    @GET("users/148ac21f187cdcbc/events")
+    Call<TeacherEvents> getevents();
 
 }

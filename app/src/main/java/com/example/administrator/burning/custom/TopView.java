@@ -67,7 +67,6 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
         imgs = new ArrayList<>();
         APP app = (APP) ((Activity) context).getApplication();
         app.getServer().getSpace().enqueue(this);
-
         pager.addOnPageChangeListener(this);
 
 
