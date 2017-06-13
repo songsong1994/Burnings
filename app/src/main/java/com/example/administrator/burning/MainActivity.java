@@ -1,5 +1,6 @@
 package com.example.administrator.burning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
@@ -7,30 +8,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.administrator.burning.beans.History;
 import com.example.administrator.burning.fragment.EventFragment;
 import com.example.administrator.burning.fragment.HomeFragment;
 import com.example.administrator.burning.requestdata.APP;
-import com.example.administrator.burning.beans.History;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.HEAD;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, Callback<History> {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     private RadioGroup group;
-    private TextView view;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         view = (TextView) findViewById(R.id.main_text);
         group = (RadioGroup) findViewById(R.id.layout_main);
         group.setOnCheckedChangeListener(this);
         APP app = (APP) getApplication();
         app.getServer().gethistory().enqueue(this);
+
+        group = (RadioGroup) findViewById(R.id.layout_main);
+        group.setOnCheckedChangeListener(this);
+
     }
 
     @Override
@@ -38,7 +43,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (checkedId) {
             case R.id.activity:
+
                 transaction.replace(R.id.layout_for_fragment,new EventFragment());
+
+                startActivity(new Intent(this,ArtistActivity.class));
+
                 break;
             case R.id.my:
                 break;
@@ -48,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
         transaction.commit();
     }
+
 
     @Override
     public void onResponse(Call<History> call, Response<History> response) {
@@ -76,4 +86,5 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 //        }
 //        transaction.commit();
 //    }
+
 }

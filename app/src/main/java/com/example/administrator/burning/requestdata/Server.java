@@ -15,8 +15,11 @@ public interface Server {
     //测试类
     @GET("events/booking")
     Call<Top> getdata();
+
     //往期
     @GET("events/history?eetpn=3")
     Call<History> gethistory();
+
+
 
 }

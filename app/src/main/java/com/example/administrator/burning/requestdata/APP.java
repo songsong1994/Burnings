@@ -2,6 +2,8 @@ package com.example.administrator.burning.requestdata;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,6 +18,7 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fresco.initialize(this);
         //设置拦截器
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(new HttpInterceptor());

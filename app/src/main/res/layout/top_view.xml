@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#c0c0c0">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,26 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/radios">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/rad_point"
-                    android:layout_margin="10dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="10dp"
-                    android:src="@mipmap/gray_point"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_margin="10dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/gray_point"/>
-            </LinearLayout>
+                android:id="@+id/radios"/>
         </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,10 +94,39 @@
                 android:layout_gravity="right"
                 />
         </FrameLayout>
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@mipmap/haizeiwang9"/>
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:id="@+id/img_recommend"
+                android:layout_margin="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/title_burning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:text="感知生命的羁绊，点燃生命中的一束火花"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="#fff"
+                    android:id="@+id/subject_burning"
+                    android:text="asdffdfad"/>
+            </LinearLayout>
+        </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
