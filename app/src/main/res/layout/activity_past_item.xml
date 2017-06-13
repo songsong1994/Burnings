@@ -87,13 +87,55 @@
         android:layout_height="wrap_content"
         android:text="燃时刻"
         android:textSize="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="30dp"/>
     <LinearLayout
+        android:layout_marginTop="40dp"
         android:id="@+id/action_past_layout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/action_past_layout5_iv1_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            fresco:failureImage="@mipmap/wwh_event_2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/action_past_layout5_iv2_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            fresco:failureImage="@mipmap/wwh_event_2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/action_past_layout5_iv3_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            fresco:failureImage="@mipmap/wwh_event_2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/action_past_layout5_iv4_id"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            fresco:failureImage="@mipmap/wwh_event_2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            />
 
     </LinearLayout>
 
