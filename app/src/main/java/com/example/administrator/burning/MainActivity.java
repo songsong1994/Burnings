@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (checkedId) {
             case R.id.activity:
-                startActivity(new Intent(this,ArtistActivity.class));
+                Intent intent = new Intent(this,ArtistActivity.class);
+                intent.putExtra("userId","14d40841126e395e");
+                startActivity(intent);
                 transaction.replace(R.id.layout_for_fragment,new EventFragment());
-
-
 
                 break;
             case R.id.my:

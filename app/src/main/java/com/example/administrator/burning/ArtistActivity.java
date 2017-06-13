@@ -31,10 +31,15 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
         setContentView(R.layout.top_artist_view);
         showInfo();
         img.setAlpha(0.6f);
+        String userId = getIntent().getStringExtra("userId");
         app = ((APP) getApplication());
-        app.getServer().getintroduce().enqueue(this);
+        app.getServer().getintroduce(userId).enqueue(this);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.artist_top_framelayout, new ArtistFragment());
+        ArtistFragment fragment = new ArtistFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("userId",userId);
+        fragment.setArguments(bundle);
+        transaction.replace(R.id.artist_top_framelayout,fragment);
         transaction.commit();
 
     }
@@ -70,5 +75,8 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
         statusNum = (TextView) findViewById(R.id.introduce_statusNum);
         artifactNum = (TextView) findViewById(R.id.introduce_artifactNum);
 
+    }
+    public void back(View view){
+        this.finish();
     }
 }

@@ -7,6 +7,7 @@ import com.example.administrator.burning.beans.TeacherIntroduce;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  *
@@ -23,12 +24,13 @@ public interface Server {
     @GET("events/history?eetpn=3")
     Call<History> gethistory();
 
-    @GET("users/148ac21f187cdcbc/info")
-    Call<TeacherIntroduce> getintroduce();
+    //教师个人详情
+    @GET("users/{userId}/info")
+    Call<TeacherIntroduce> getintroduce(@Path("userId") String userId);
 
     //教师个人页面
-    @GET("users/148ac21f187cdcbc/events")
-    Call<TeacherEvents> getevents();
+    @GET("users/{userId}/events")
+    Call<TeacherEvents> getevents(@Path("userId") String userId);
 
     @GET("home")
     Call<Space>getSpace();

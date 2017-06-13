@@ -47,9 +47,10 @@ public class ArtistFragment extends Fragment implements Callback<TeacherEvents> 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = (RecyclerView)view.findViewById(R.id.artist_listview);
+        Bundle bundle = getArguments();
+        String userId = bundle.getString("userId");
         app = (APP) getActivity().getApplication();
-        app.getServer().getevents().enqueue(this);
-
+        app.getServer().getevents(userId).enqueue(this);
     }
 
 
