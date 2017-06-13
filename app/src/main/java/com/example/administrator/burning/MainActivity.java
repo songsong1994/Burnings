@@ -15,24 +15,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, Callback<History> {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     private RadioGroup group;
-    private TextView view;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        view = (TextView) findViewById(R.id.main_text);
-        APP app= (APP) getApplication();
-        app.getServer().gethistory().enqueue(this);
         group = (RadioGroup) findViewById(R.id.layout_main);
         group.setOnCheckedChangeListener(this);
-
-
-
     }
 
     @Override
@@ -50,29 +43,4 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         transaction.commit();
     }
 
-    @Override
-    public void onResponse(Call<History> call, Response<History> response) {
-        view.setText(response.body().getData().getList().get(0).getPhoto().getUrl().toString());
-    }
-
-    @Override
-    public void onFailure(Call<History> call, Throwable t) {
-
-    }
-
-
-//    @Override
-//    public void onClick(View v) {
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        switch (v.getId()) {
-//            case R.id.activity:
-//                break;
-//            case R.id.my:
-//                break;
-//            case R.id.burning:
-//                transaction.replace(R.id.layout_for_fragment,new HomeFragment());
-//                break;
-//        }
-//        transaction.commit();
-//    }
 }

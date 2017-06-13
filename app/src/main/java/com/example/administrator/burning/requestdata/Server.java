@@ -1,5 +1,7 @@
 package com.example.administrator.burning.requestdata;
 
+import com.example.administrator.burning.bean.Space;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -16,5 +18,8 @@ public interface Server {
 
     @GET("events/history")
     Call<History> gethistory();
+
+    @GET("home")
+    Call<Space>getSpace();
 
 }
