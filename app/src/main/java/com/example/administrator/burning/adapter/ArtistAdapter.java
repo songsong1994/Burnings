@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,8 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
 
     @Override
     public void onBindViewHolder(ArtistViewHolder holder, int position) {
+        Uri uri = Uri.parse(list.get(position).getPhoto().getUrl().toString());
+        holder.simpleDraweeView.setImageURI(uri);
         holder.drawname.setText(list.get(position).getTopic().toString());
         holder.authorname.setText(list.get(position).getTeacher().getName().toString());
         holder.date.setText(list.get(position).getStartTime().toString());
@@ -52,7 +55,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         public TextView drawname,authorname,date,site;
         public ArtistViewHolder(View itemView) {
             super(itemView);
-//            simpleDraweeView = (SimpleDraweeView) itemView.findViewById(R.id.artist_item_img);
+            simpleDraweeView = (SimpleDraweeView) itemView.findViewById(R.id.artist_item_img);
             drawname = (TextView) itemView.findViewById(R.id.artist_item_drawname);
             authorname = (TextView) itemView.findViewById(R.id.artist_item_authorname);
             date = (TextView) itemView.findViewById(R.id.artist_item_date);

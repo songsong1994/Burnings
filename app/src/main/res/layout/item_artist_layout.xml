@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="#fff"
     >
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@mipmap/image_loading_icon"
-        android:layout_marginLeft="20dp"
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        fresco:failureImage="@mipmap/image_loading_icon"
+        android:scaleType="fitXY"
+        android:layout_margin="20dp"
         android:id="@+id/artist_item_img"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp" />
+         />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/artist_item_img"
         android:layout_toEndOf="@+id/artist_item_img">
@@ -38,7 +38,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:orientation="horizontal"
-           android:layout_marginTop="20dp"
+           android:layout_marginTop="10dp"
            >
            <TextView
                android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             >
             <ImageView
                 android:layout_width="20dp"
@@ -73,6 +73,7 @@
                 android:id="@+id/artist_item_date"
                 />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
