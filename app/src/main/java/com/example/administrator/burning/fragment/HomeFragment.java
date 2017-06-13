@@ -47,6 +47,6 @@ public class HomeFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,list);
 
         lv.setAdapter(adapter);
-        lv.addHeaderView(new TopView(getContext()));
+        lv.addHeaderView(new TopView(getActivity()));
     }
 }
