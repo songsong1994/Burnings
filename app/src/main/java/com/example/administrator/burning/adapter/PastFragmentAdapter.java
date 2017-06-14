@@ -61,15 +61,22 @@ public class PastFragmentAdapter extends BaseAdapter {
         Uri uri=Uri.parse(listBean.getPhoto().getUrl());
         viewHolder.icon.setImageURI(uri);
         viewHolder.tv1_name.setText(listBean.getTopic());
-        viewHolder.tv3_author.setText(listBean.getTeacher().getName());
+        if(listBean.getTeacher()==null){
+            viewHolder.tv3_author.setText("不详");
+        }
+        else{
+            viewHolder.tv3_author.setText(listBean.getTeacher().getName());
+        }
         viewHolder.tv4_location.setText(listBean.getLocation().getName());
         viewHolder.tv5_time.setText(listBean.getStartTime());
 //        if (listBean.getPosts().size()>0) {
 //            Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
 //            viewHolder.icon1.setImageURI(uri1);
 //        }
+            if(listBean.getPosts().size()==0){
 
-      if(listBean.getPosts().size()==1){
+            }
+      else if(listBean.getPosts().size()==1){
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
           //viewHolder.icon1.setVisibility(View.VISIBLE);
@@ -93,7 +100,7 @@ public class PastFragmentAdapter extends BaseAdapter {
           viewHolder.icon3.setImageURI(uri3);
           //viewHolder.icon3.setVisibility(View.VISIBLE);
       }
-      else if(listBean.getPosts().size()>3){
+      else {
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
           //viewHolder.icon1.setVisibility(View.VISIBLE);
@@ -103,7 +110,8 @@ public class PastFragmentAdapter extends BaseAdapter {
           Uri uri3=Uri.parse(listBean.getPosts().get(2).getPhoto().getUrl());
           viewHolder.icon3.setImageURI(uri3);
           //viewHolder.icon3.setVisibility(View.VISIBLE);
-          viewHolder.icon4.setImageResource(R.mipmap.more);
+          Uri uri4=Uri.parse( "res://com.example.administrator.burning/"+R.mipmap.more);
+          viewHolder.icon4.setImageURI(uri4);
       }
 //        if(listBean.getPosts().size()!=0){
 //            for(int i=0;i<listBean.getPosts().size();i++){
