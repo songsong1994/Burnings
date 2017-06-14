@@ -1,6 +1,5 @@
 package com.example.administrator.burning;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
@@ -32,11 +31,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (checkedId) {
             case R.id.activity:
-                Intent intent = new Intent(this,ArtistActivity.class);
-                intent.putExtra("userId","14d40841126e395e");
-                startActivity(intent);
                 transaction.replace(R.id.layout_for_fragment,new EventFragment());
-
                 break;
             case R.id.my:
                 break;

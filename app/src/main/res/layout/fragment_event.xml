@@ -19,6 +19,7 @@
             android:background="#FFFFFF"
             android:textSize="18sp"
             android:id="@+id/event_city_but"
+            android:onClick="click"
             />
         <Button
             android:layout_width="wrap_content"

@@ -22,6 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
+ * 艺术家活动Fragment
  * A simple {@link Fragment} subclass.
  */
 public class ArtistFragment extends Fragment implements Callback<TeacherEvents> {

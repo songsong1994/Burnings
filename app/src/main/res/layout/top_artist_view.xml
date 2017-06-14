@@ -177,16 +177,19 @@
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/artist_top_layout"
         android:id="@+id/artist_top_lainer"
         android:background="#fff"
+        android:gravity="center"
         >
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:onClick="fragment_click"
+            android:id="@+id/fragment_event"
             >
         <TextView
             android:layout_width="wrap_content"
@@ -194,12 +197,14 @@
             android:text="活动"
             android:textSize="15sp"
             android:layout_gravity="center"
+            android:id="@+id/introduce_eventnum1"
             />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="111个"
-                android:textSize="15sp"
+                android:textSize="10sp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/introduce_eventnum"
                 />
@@ -209,6 +214,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:onClick="fragment_click"
+            android:id="@+id/fragment_status"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -216,12 +223,14 @@
                 android:text="时刻"
                 android:textSize="15sp"
                 android:layout_gravity="center"
+                android:id="@+id/introduce_statusNum1"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="111个"
-                android:textSize="15sp"
+                android:textSize="10sp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/introduce_statusNum"
                 />
@@ -231,6 +240,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:onClick="fragment_click"
+            android:id="@+id/fragment_artifact"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -238,12 +249,14 @@
                 android:text="作品"
                 android:textSize="15sp"
                 android:layout_gravity="center"
+                android:id="@+id/introduce_artifactNum1"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="111个"
-                android:textSize="15sp"
+                android:textSize="10sp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/introduce_artifactNum"
                 />
