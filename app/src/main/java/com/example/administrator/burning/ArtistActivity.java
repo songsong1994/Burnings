@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.administrator.burning.beans.TeacherIntroduce;
+import com.example.administrator.burning.fragment.ArtistArtifactFragment;
 import com.example.administrator.burning.fragment.ArtistFragment;
 import com.example.administrator.burning.fragment.ArtistNullFragment;
 import com.example.administrator.burning.fragment.ArtistStatusFragment;
@@ -29,8 +30,8 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
     public TextView friendnum,followerNum,eventnum,statusNum,artifactNum,nickname,eventnum1,statusNum1,artifactNum1;
     private View img;
     private String userId;
-
-
+    private ArtistNullFragment nullf=new ArtistNullFragment();
+    private ArtistFragment fragment = new ArtistFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +43,26 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
         app = ((APP) getApplication());
         app.getServer().getintroduce(userId).enqueue(this);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        ArtistFragment fragment = new ArtistFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("userId",userId);
-        fragment.setArguments(bundle);
-        transaction.replace(R.id.artist_top_framelayout,fragment);
-        transaction.commit();
-        eventnum.setTextColor(Color.BLACK);
-        eventnum1.setTextColor(Color.BLACK);
     }
 
     @Override
     public void onResponse(Call<TeacherIntroduce> call, Response<TeacherIntroduce> response) {
         data = response.body().getData();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (data.getEventNum() > 0) {
+
+            Bundle bundle = new Bundle();
+            bundle.putString("userId",userId);
+            fragment.setArguments(bundle);
+            transaction.replace(R.id.artist_top_framelayout,fragment);
+            artistFragment();
+        }else {
+            transaction.replace(R.id.artist_top_framelayout,nullf);
+            artistFragment();
+        }
+        transaction.commit();
+
         if (data.getBackgroundPhoto() != null) {
             Uri uri = Uri.parse(data.getBackgroundPhoto().getUrl().toString());
             url.setImageURI(uri);
@@ -96,17 +103,16 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (view.getId()){
             case R.id.fragment_event:
-                ArtistFragment fragment = new ArtistFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("userId",userId);
-                fragment.setArguments(bundle);
-                transaction.replace(R.id.artist_top_framelayout,fragment);
-                eventnum.setTextColor(Color.BLACK);
-                eventnum1.setTextColor(Color.BLACK);
-                statusNum.setTextColor(Color.GRAY);
-                statusNum1.setTextColor(Color.GRAY);
-                artifactNum.setTextColor(Color.GRAY);
-                artifactNum1.setTextColor(Color.GRAY);
+                if (data.getEventNum() > 0) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userId",userId);
+                    fragment.setArguments(bundle);
+                    transaction.replace(R.id.artist_top_framelayout,fragment);
+                    artistFragment();
+                }else {
+                    transaction.replace(R.id.artist_top_framelayout,nullf);
+                    artistFragment();
+                }
                 break;
             case R.id.fragment_status:
                 if (data.getStatusNum() > 0) {
@@ -116,24 +122,53 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
                     bundleStatus.putString("img",data.getAvatar());
                     status.setArguments(bundleStatus);
                     transaction.replace(R.id.artist_top_framelayout,status);
-                    eventnum.setTextColor(Color.GRAY);
-                    eventnum1.setTextColor(Color.GRAY);
-                    statusNum.setTextColor(Color.BLACK);
-                    statusNum1.setTextColor(Color.BLACK);
-                    artifactNum.setTextColor(Color.GRAY);
-                    artifactNum1.setTextColor(Color.GRAY);
-                    break;
+                    artistNullFragment();
                 }else {
-                    transaction.replace(R.id.artist_top_framelayout,new ArtistNullFragment());
-                    eventnum.setTextColor(Color.GRAY);
-                    eventnum1.setTextColor(Color.GRAY);
-                    statusNum.setTextColor(Color.BLACK);
-                    statusNum1.setTextColor(Color.BLACK);
-                    artifactNum.setTextColor(Color.GRAY);
-                    artifactNum1.setTextColor(Color.GRAY);
-                    break;
+                    transaction.replace(R.id.artist_top_framelayout,nullf);
+                    artistNullFragment();
                 }
+                break;
+            case R.id.fragment_artifact:
+                if (data.getStatusNum() > 0) {
+                    ArtistArtifactFragment artifact = new ArtistArtifactFragment();
+                    Bundle bundleStatus = new Bundle();
+                    bundleStatus.putString("userId",userId);
+                    bundleStatus.putString("img",data.getAvatar());
+                    artifact.setArguments(bundleStatus);
+                    transaction.replace(R.id.artist_top_framelayout,artifact);
+                    artifactFragment();
+                }else {
+                    transaction.replace(R.id.artist_top_framelayout,nullf);
+                    artifactFragment();
+                }
+                break;
+
         }
         transaction.commit();
+    }
+
+    public void artistFragment(){
+        eventnum.setTextColor(Color.BLACK);
+        eventnum1.setTextColor(Color.BLACK);
+        statusNum.setTextColor(Color.GRAY);
+        statusNum1.setTextColor(Color.GRAY);
+        artifactNum.setTextColor(Color.GRAY);
+        artifactNum1.setTextColor(Color.GRAY);
+    }
+    public void artistNullFragment(){
+        eventnum.setTextColor(Color.GRAY);
+        eventnum1.setTextColor(Color.GRAY);
+        statusNum.setTextColor(Color.BLACK);
+        statusNum1.setTextColor(Color.BLACK);
+        artifactNum.setTextColor(Color.GRAY);
+        artifactNum1.setTextColor(Color.GRAY);
+    }
+    public void artifactFragment(){
+        eventnum.setTextColor(Color.GRAY);
+        eventnum1.setTextColor(Color.GRAY);
+        statusNum.setTextColor(Color.GRAY);
+        statusNum1.setTextColor(Color.GRAY);
+        artifactNum.setTextColor(Color.BLACK);
+        artifactNum1.setTextColor(Color.BLACK);
     }
 }

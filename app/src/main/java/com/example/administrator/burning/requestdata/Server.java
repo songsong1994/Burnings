@@ -2,6 +2,7 @@ package com.example.administrator.burning.requestdata;
 
 import com.example.administrator.burning.bean.Space;
 import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.TeacherArtifact;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
 import com.example.administrator.burning.beans.TecherStatus;
@@ -29,13 +30,17 @@ public interface Server {
     @GET("users/{userId}/info")
     Call<TeacherIntroduce> getintroduce(@Path("userId") String userId);
 
-    //教师个人页面
+    //教师活动
     @GET("users/{userId}/events")
     Call<TeacherEvents> getevents(@Path("userId") String userId);
 
-    //时刻
+    //教师时刻
     @GET("users/{userId}/statuses")
     Call<TecherStatus> getstatus(@Path("userId") String userId);
+
+    //教师作品
+    @GET("users/{userId}/artifacts")
+    Call<TeacherArtifact> getartifact(@Path("userId") String userId);
 
     @GET("home")
     Call<Space>getSpace();
