@@ -65,47 +65,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="内容"
-            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:id="@+id/artifact_rec_body"
-            android:layout_marginTop="10dp"
-            android:singleLine="true"
+            android:text="《"
+            android:textSize="20dp"
+            android:textStyle="bold"
             />
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/artifact_rec_body"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            >
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/center_mark_icon"
-            android:id="@+id/xingxingid"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:text="内容"
+            android:textSize="20dp"
+            android:textStyle="bold"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
             android:layout_gravity="center"
-            android:layout_centerVertical="true"
-            android:id="@+id/artifact_rec_mark"
-            android:layout_alignParentRight="true"
+            android:text="》"
+            android:textSize="20dp"
+            android:textStyle="bold"
             />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp">
+
+            <ImageView
+                android:id="@+id/xingxingid"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/center_mark_icon" />
+
+            <TextView
+                android:id="@+id/artifact_rec_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:text="2" />
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        >
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
