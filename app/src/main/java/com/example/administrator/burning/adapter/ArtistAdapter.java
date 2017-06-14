@@ -21,7 +21,6 @@ import java.util.List;
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder> {
     private Context context;
     private List<TeacherEvents.DataBean.ListBean> list;
-
     public ArtistAdapter(Context context, List<TeacherEvents.DataBean.ListBean> list) {
         this.context = context;
         this.list = list;

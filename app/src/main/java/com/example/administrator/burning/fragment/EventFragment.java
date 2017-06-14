@@ -42,7 +42,7 @@ private Button bt1,event_city_but;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),ArtistActivity.class);
-                intent.putExtra("userId","14d40841126e395e");
+                intent.putExtra("userId","2c09e5b5d9cc4d9c91e1beb80a0567b4");
                 startActivity(intent);
             }
         });
