@@ -2,6 +2,7 @@ package com.example.administrator.burning.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,16 +43,18 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
     public void onBindViewHolder(HomeViewHolder holder, int position) {
         List<Space.DataBean.Artifact> artifacts = data.get(position).getArtifacts();
         holder.draweeView.setImageURI(data.get(position).getAvatar());
+        for (int i = 0; i < 3; i++) {
+            ((SimpleDraweeView) holder.sdv_layout.getChildAt(i)).setAspectRatio(1);
+        }
+        int i=0;
         for (Space.DataBean.Artifact artifact : artifacts) {
-            SimpleDraweeView sdv=new SimpleDraweeView(context);
+            SimpleDraweeView sdv=(SimpleDraweeView) holder.sdv_layout.getChildAt(i);
+            Log.i("info", "onBindViewHolder: ------------->"+artifact.getPhoto().getUrl());
             sdv.setImageURI(artifact.getPhoto().getUrl());
-            sdv.setAspectRatio(artifact.getPhoto().getWidth()/artifact.getPhoto().getHeight());
-            holder.sdv_layout.addView(sdv);
+            i++;
         }
         Space.DataBean.TeachersBean bean = data.get(position);
         if (data.get(position).getName()!=null) {
-
-
             holder.name.setText(bean.getName().toString());
         }else {
             holder.name.setText("默认用户名");

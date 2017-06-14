@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ArtistActivity"></activity>
+        <activity android:name=".ArtistActivity" />
+        <activity android:name=".Home_ListImg_Activity"></activity>
     </application>
 
 </manifest>

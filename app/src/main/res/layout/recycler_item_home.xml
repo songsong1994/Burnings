@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="200dp"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal">
+    android:background="#fff"
+    android:gravity="center_horizontal"
+    android:layout_margin="10dp">
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -47,10 +51,29 @@
         android:orientation="horizontal"
         android:layout_height="60dp"
         android:id="@+id/sdv_layout">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:actualImageResource="@mipmap/haizeiwang9"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"/>
+        <com.facebook.drawee.view.SimpleDraweeView
+            app:actualImageResource="@mipmap/haizeiwang9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"/>
+        <com.facebook.drawee.view.SimpleDraweeView
+            app:actualImageResource="@mipmap/haizeiwang9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:textColor="#fff"
         android:text="+关注"
         android:background="@drawable/shap"/>

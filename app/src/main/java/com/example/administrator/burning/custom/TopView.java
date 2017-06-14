@@ -2,15 +2,18 @@ package com.example.administrator.burning.custom;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.administrator.burning.Home_ListImg_Activity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.adapter.TopPagerAdapter;
 import com.example.administrator.burning.adapter.TopRecycleAdapter;
@@ -32,10 +35,11 @@ import retrofit2.Response;
  * Created by Administrator on 2017/6/12.
  */
 
-public class TopView extends FrameLayout implements Callback<Space>, ViewPager.OnPageChangeListener {
-    private final SimpleDraweeView recommend;
-    private final TextView title;
-    private final TextView subject;
+public class TopView extends FrameLayout implements Callback<Space>, ViewPager.OnPageChangeListener, View.OnClickListener {
+    private  SimpleDraweeView recommend;
+    private  TextView title;
+    private  TextView subject;
+    private  FrameLayout toList;
     private  RecyclerView recycler;
     private TopRecycleAdapter adapter;
     private Context context;
@@ -52,12 +56,7 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
         this.context=context;
         Fresco.initialize(context);
         LayoutInflater.from(context).inflate(R.layout.top_view,this);
-        recycler = (RecyclerView) findViewById(R.id.recycle_top);
-        pager = (ViewPager) findViewById(R.id.pager_top);
-        radios = (LinearLayout) findViewById(R.id.radios);
-        recommend = (SimpleDraweeView) findViewById(R.id.img_recommend);
-        title = (TextView) findViewById(R.id.title_burning);
-        subject = (TextView) findViewById(R.id.subject_burning);
+        init();
         //recyclerView填充数据
         data = new ArrayList<>();
         adapter = new TopRecycleAdapter(data,getContext());
@@ -68,8 +67,19 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
         APP app = (APP) ((Activity) context).getApplication();
         app.getServer().getSpace().enqueue(this);
         pager.addOnPageChangeListener(this);
+        toList.setOnClickListener(this);
 
 
+    }
+
+    private void init() {
+        recycler = (RecyclerView) findViewById(R.id.recycle_top);
+        pager = (ViewPager) findViewById(R.id.pager_top);
+        radios = (LinearLayout) findViewById(R.id.radios);
+        recommend = (SimpleDraweeView) findViewById(R.id.img_recommend);
+        title = (TextView) findViewById(R.id.title_burning);
+        subject = (TextView) findViewById(R.id.subject_burning);
+        toList = (FrameLayout) findViewById(R.id.to_home_list);
     }
 
     @Override
@@ -125,5 +135,10 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        context.startActivity(new Intent(context, Home_ListImg_Activity.class));
     }
 }

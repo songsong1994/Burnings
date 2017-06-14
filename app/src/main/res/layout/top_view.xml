@@ -96,7 +96,8 @@
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/to_home_list">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="match_parent"

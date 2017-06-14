@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         group.setOnCheckedChangeListener(this);
         group = (RadioGroup) findViewById(R.id.layout_main);
         group.setOnCheckedChangeListener(this);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragment,new HomeFragment()).commit();
     }
 
     @Override
