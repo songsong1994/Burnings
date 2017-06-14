@@ -3,18 +3,16 @@ package com.example.administrator.burning.beans;
 import java.util.List;
 
 /**
- * 预定活动实体类
- * Created by WeihuaWang on 2017/6/12.
+ * Created by WeihuaWang on 2017/6/13.
  */
 
-public class OrderEvent {
-
+public class NewestEvent {
 
     /**
      * status : 1
      * errorCode : 0
      * message : success
-     * data : {"base":"675","list":[{"id":"0417edb8630def8c","topic":"我的新活动","photo":{"width":709,"height":1063,"url":"http://image.artful.com.cn/artful/event/2017-04-20/fbb954b4cfd6b96d.jpg"},"startTime":"2017-06-21 12:00:00","price":0.01,"distance":8403757,"location":{"id":"1482b5cb5c890fad","name":"Costa Coffee （远洋光华国际）","logo":"http://image.artful.com.cn/artful/venue/2016-11-25/c434aa877015a112.jpg"},"teacher":{"id":"148ac21f187cdcbc","nickname":"大侠","name":"陈文厦","avatar":"http://wx.qlogo.cn/mmopen/K88xJribq4L1iaC7Bhg93kLzZFpBjpY1qR4t3mflooJQYDVnIibjxPN9mZqHSNxxOwFqGQyk2KHA1F9nR3WX6JC5l2ed79jMM8a/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"WAITING","selledTicketCount":1,"ticketCount":20,"isCandidate":0,"marked":true},{"id":"a9efde6145984b9bb43d207eddef85e3","topic":"红唇 | 风格插画 | 水彩+彩铅","photo":{"width":1024,"height":1024,"url":"http://image.artful.com.cn/artful/event/2016-09-19/f0735dee7e5b4cf18b36e8e39eee45ac.jpg"},"startTime":"2017-06-21 13:00:00","price":180,"distance":8403651,"location":{"id":"a9e8cd0bcbe748b28a4414846b31bb15","name":"V TIME (工体南门)","logo":null},"teacher":{"id":"67fa17bd38a04adb8f259ca207dc7f0d","nickname":"琪","name":"高琪","avatar":"http://wx.qlogo.cn/mmopen/54IWKPc416LQyiaEZnKaBH11icnJb5msqxSCibKdicaR0CrmopObklDeojRmq8F9DJL2Zia3BvoyvLhwGMad0qWszib7U1luP5gqwx/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"WAITING","selledTicketCount":12,"ticketCount":15,"isCandidate":0,"marked":false}],"page":1,"length":15,"totalCount":2,"toEnd":true}
+     * data : {"base":"675","list":[{"id":"0417edb8630def8c","topic":"我的新活动","photo":{"width":709,"height":1063,"url":"http://image.artful.com.cn/artful/event/2017-04-20/fbb954b4cfd6b96d.jpg"},"startTime":"2017-06-13 12:00:00","price":200,"distance":8403757,"location":{"id":"1482b5cb5c890fad","name":"Costa Coffee （远洋光华国际）","logo":"http://image.artful.com.cn/artful/venue/2016-11-25/c434aa877015a112.jpg"},"teacher":{"id":"148ac21f187cdcbc","nickname":"大侠","name":"陈文厦","avatar":"http://wx.qlogo.cn/mmopen/K88xJribq4L1iaC7Bhg93kLzZFpBjpY1qR4t3mflooJQYDVnIibjxPN9mZqHSNxxOwFqGQyk2KHA1F9nR3WX6JC5l2ed79jMM8a/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"CANCELED","selledTicketCount":0,"ticketCount":20,"isCandidate":0,"marked":true}],"page":1,"length":15,"totalCount":1,"toEnd":true}
      */
 
     private int status;
@@ -57,10 +55,10 @@ public class OrderEvent {
     public static class DataBean {
         /**
          * base : 675
-         * list : [{"id":"0417edb8630def8c","topic":"我的新活动","photo":{"width":709,"height":1063,"url":"http://image.artful.com.cn/artful/event/2017-04-20/fbb954b4cfd6b96d.jpg"},"startTime":"2017-06-21 12:00:00","price":0.01,"distance":8403757,"location":{"id":"1482b5cb5c890fad","name":"Costa Coffee （远洋光华国际）","logo":"http://image.artful.com.cn/artful/venue/2016-11-25/c434aa877015a112.jpg"},"teacher":{"id":"148ac21f187cdcbc","nickname":"大侠","name":"陈文厦","avatar":"http://wx.qlogo.cn/mmopen/K88xJribq4L1iaC7Bhg93kLzZFpBjpY1qR4t3mflooJQYDVnIibjxPN9mZqHSNxxOwFqGQyk2KHA1F9nR3WX6JC5l2ed79jMM8a/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"WAITING","selledTicketCount":1,"ticketCount":20,"isCandidate":0,"marked":true},{"id":"a9efde6145984b9bb43d207eddef85e3","topic":"红唇 | 风格插画 | 水彩+彩铅","photo":{"width":1024,"height":1024,"url":"http://image.artful.com.cn/artful/event/2016-09-19/f0735dee7e5b4cf18b36e8e39eee45ac.jpg"},"startTime":"2017-06-21 13:00:00","price":180,"distance":8403651,"location":{"id":"a9e8cd0bcbe748b28a4414846b31bb15","name":"V TIME (工体南门)","logo":null},"teacher":{"id":"67fa17bd38a04adb8f259ca207dc7f0d","nickname":"琪","name":"高琪","avatar":"http://wx.qlogo.cn/mmopen/54IWKPc416LQyiaEZnKaBH11icnJb5msqxSCibKdicaR0CrmopObklDeojRmq8F9DJL2Zia3BvoyvLhwGMad0qWszib7U1luP5gqwx/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"WAITING","selledTicketCount":12,"ticketCount":15,"isCandidate":0,"marked":false}]
+         * list : [{"id":"0417edb8630def8c","topic":"我的新活动","photo":{"width":709,"height":1063,"url":"http://image.artful.com.cn/artful/event/2017-04-20/fbb954b4cfd6b96d.jpg"},"startTime":"2017-06-13 12:00:00","price":200,"distance":8403757,"location":{"id":"1482b5cb5c890fad","name":"Costa Coffee （远洋光华国际）","logo":"http://image.artful.com.cn/artful/venue/2016-11-25/c434aa877015a112.jpg"},"teacher":{"id":"148ac21f187cdcbc","nickname":"大侠","name":"陈文厦","avatar":"http://wx.qlogo.cn/mmopen/K88xJribq4L1iaC7Bhg93kLzZFpBjpY1qR4t3mflooJQYDVnIibjxPN9mZqHSNxxOwFqGQyk2KHA1F9nR3WX6JC5l2ed79jMM8a/0","score":4.9,"relationStatus":null},"difficulty":3,"progressStatus":"CANCELED","selledTicketCount":0,"ticketCount":20,"isCandidate":0,"marked":true}]
          * page : 1
          * length : 15
-         * totalCount : 2
+         * totalCount : 1
          * toEnd : true
          */
 
@@ -124,14 +122,14 @@ public class OrderEvent {
              * id : 0417edb8630def8c
              * topic : 我的新活动
              * photo : {"width":709,"height":1063,"url":"http://image.artful.com.cn/artful/event/2017-04-20/fbb954b4cfd6b96d.jpg"}
-             * startTime : 2017-06-21 12:00:00
-             * price : 0.01
+             * startTime : 2017-06-13 12:00:00
+             * price : 200
              * distance : 8403757
              * location : {"id":"1482b5cb5c890fad","name":"Costa Coffee （远洋光华国际）","logo":"http://image.artful.com.cn/artful/venue/2016-11-25/c434aa877015a112.jpg"}
              * teacher : {"id":"148ac21f187cdcbc","nickname":"大侠","name":"陈文厦","avatar":"http://wx.qlogo.cn/mmopen/K88xJribq4L1iaC7Bhg93kLzZFpBjpY1qR4t3mflooJQYDVnIibjxPN9mZqHSNxxOwFqGQyk2KHA1F9nR3WX6JC5l2ed79jMM8a/0","score":4.9,"relationStatus":null}
              * difficulty : 3
-             * progressStatus : WAITING
-             * selledTicketCount : 1
+             * progressStatus : CANCELED
+             * selledTicketCount : 0
              * ticketCount : 20
              * isCandidate : 0
              * marked : true
@@ -141,7 +139,7 @@ public class OrderEvent {
             private String topic;
             private PhotoBean photo;
             private String startTime;
-            private double price;
+            private int price;
             private int distance;
             private LocationBean location;
             private TeacherBean teacher;
@@ -184,11 +182,11 @@ public class OrderEvent {
                 this.startTime = startTime;
             }
 
-            public double getPrice() {
+            public int getPrice() {
                 return price;
             }
 
-            public void setPrice(double price) {
+            public void setPrice(int price) {
                 this.price = price;
             }
 

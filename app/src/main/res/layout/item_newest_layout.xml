@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +38,7 @@
         android:textSize="18sp"
         android:layout_marginLeft="20dp"
         android:layout_height="wrap_content" />
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_newest_iv"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -45,11 +46,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:src="@mipmap/wwh_event_5"
+            fresco:failureImage="@mipmap/wwh_event_5"
             android:id="@+id/event_newest_coin_iv"
             />
         <LinearLayout
@@ -115,6 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="指导老师姓名"
+                android:id="@+id/event_newest_teacther_tv"
                 android:textSize="18sp"/>
         </LinearLayout>
     </RelativeLayout>

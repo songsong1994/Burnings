@@ -2,6 +2,8 @@ package com.example.administrator.burning.requestdata;
 
 import com.example.administrator.burning.bean.Space;
 import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.OrderEvent;
+import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.beans.TeacherArtifact;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
@@ -44,4 +46,10 @@ public interface Server {
 
     @GET("home")
     Call<Space>getSpace();
+//最新活动列表
+    @GET ("events/booking")
+    Call<OrderEvent> getOrderEvent();
+    //最新活动列表详情
+    @GET ("events/{string}/booking_detail")
+    Call<OrderEventDetail> getDetail(@Path("string") String string);
 }

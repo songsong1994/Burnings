@@ -17,8 +17,9 @@ import com.example.administrator.burning.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EventFragment extends Fragment {
+public class EventFragment extends Fragment implements View.OnClickListener {
 private Button bt1,event_city_but;
+    private Button bt2;
 
     public EventFragment() {
         // Required empty public constructor
@@ -36,6 +37,7 @@ private Button bt1,event_city_but;
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        onClick(null);
         bt1= (Button) view.findViewById(R.id.event_past_but);
         event_city_but = (Button) view.findViewById(R.id.event_city_but);
         event_city_but.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +56,19 @@ private Button bt1,event_city_but;
                 transaction.commit();
             }
         });
+        bt2 = (Button) view.findViewById(R.id.event_newest_but);
+        bt2.setOnClickListener(this);
 
     }
 
-}
+    @Override
+    public void onClick(View v) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.event_fragment_id,new NewestFragment());
+        transaction.commit();
+
+    }
+
+    }
+
+

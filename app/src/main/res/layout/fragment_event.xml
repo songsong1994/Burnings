@@ -14,9 +14,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="city"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:background="#FFFFFF"
+            android:text="北京"
+            android:drawableLeft="@mipmap/location"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
             android:textSize="18sp"
             android:id="@+id/event_city_but"
             android:onClick="click"
@@ -27,7 +28,7 @@
             android:id="@+id/event_title_but"
             android:text="活动"
             android:layout_centerHorizontal="true"
-            android:background="#FFFFFF"
+            android:background="@null"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
