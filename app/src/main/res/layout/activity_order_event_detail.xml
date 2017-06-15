@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:onClick="onClick"
             android:id="@+id/order_event_detail_return"
-            android:src="@mipmap/next_row_black"
+            android:src="@mipmap/back_white"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -32,7 +32,7 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/center_event_icon"
+            android:src="@mipmap/shar_icon_white"
             android:layout_alignParentRight="true"
             />
         <ImageView
@@ -77,6 +77,7 @@
             </LinearLayout>
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
                 android:layout_height="400dp"
 
                 android:id="@+id/order_event_detail_sdv"
@@ -123,10 +124,17 @@
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/order_event_detail_teacher_name"/>
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="80dp"
-                    android:src="@mipmap/wwh_event_1"
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="+关注"
+                    android:onClick="onClick"
+                    android:id="@+id/order_event_detail_follow"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/wwh_event_1"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"/>
             </RelativeLayout>
@@ -206,9 +214,9 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:text="400-8088-303"
-                android:drawableTop="@mipmap/wwh_event_star_4"
+                android:drawableTop="@mipmap/phone_icon"
                 android:textColor="#000000"/>
             <TextView
                 android:layout_width="match_parent"
@@ -240,11 +248,19 @@
                 />
             <ImageView
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/wwh_event_5"
                 android:layout_marginLeft="20dp"
+                android:layout_height="50dp"
                 android:id="@+id/order_event_detail_user_icon"
+                android:src="@mipmap/wwh_event_5"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:scrollbars="horizontal"
+                android:visibility="gone"
+                android:id="@+id/order_event_detail_user_icon_rv"
                 />
+
         </LinearLayout>
     </ScrollView>
     <Button

@@ -131,7 +131,7 @@ public class OrderEventDetail {
         private String startTime;
         private String endTime;
         private String topic;
-        private int price;
+        private Double price;
         private int maxBookCount;
         private int status;
         private String description;
@@ -245,11 +245,11 @@ public class OrderEventDetail {
             this.topic = topic;
         }
 
-        public int getPrice() {
+        public Double getPrice() {
             return price;
         }
 
-        public void setPrice(int price) {
+        public void setPrice(Double price) {
             this.price = price;
         }
 

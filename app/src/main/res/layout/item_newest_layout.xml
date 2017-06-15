@@ -42,8 +42,10 @@
         android:id="@+id/item_newest_iv"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/wwh_event_6" />
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
@@ -54,6 +56,7 @@
             android:id="@+id/event_newest_coin_iv"
             />
         <LinearLayout
+
             android:layout_toRightOf="@id/event_newest_coin_iv"
             android:layout_width="match_parent"
             android:id="@+id/ll"

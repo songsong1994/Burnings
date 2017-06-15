@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.burning.adapter.OrderUserRecycleAdapter;
 import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.requestdata.APP;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -36,6 +40,9 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
     private TextView hint;
     private TextView user_num;
     private TextView end_time;
+    private RecyclerView sdv_user_rv;
+    private ImageView sdv_user;
+    private TextView follow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +51,13 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         Intent intent = getIntent();
         String path = intent.getStringExtra("id");
         init();
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        sdv_user_rv.setLayoutManager(linearLayoutManager);
         Fresco.initialize(this);
         APP app = (APP) this.getApplication();
         app.getServer().getDetail(path).enqueue(this);
+
     }
     public  void onClick(View v){
         switch (v.getId()){
@@ -54,11 +65,15 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
                 finish();
                 break;
             case R.id.order_event_detail_address_detail:
-                Toast.makeText(this,"跳转到baidu地图",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"跳转到baidu地图获取具体位置",Toast.LENGTH_LONG).show();
                 break;
             case R.id.order_event_detail_enroll:
                 Toast.makeText(this,"跳转到报名页面",Toast.LENGTH_LONG).show();
                 break;
+            case R.id.order_event_detail_follow:
+                Toast.makeText(this,"关注成功",Toast.LENGTH_LONG).show();
+                break;
+
         }
     }
     @Override
@@ -76,7 +91,16 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         address_name.setText(data.getLocation().getName());
         hint.setText(data.getBookingRequirement());
         user_num.setText(data.getSelledTicketCount()+"位燃伙伴已报名");
-        end_time.setText("结束时间："+data.getEndTime());
+        String time=data.getEndTime();
+        int num=time.indexOf(":");
+        time.substring(num-2,num+3);
+        end_time.setText(data.getStartTime().substring(0,data.getStartTime().lastIndexOf(":"))+"～"+time.substring(num-2,num+3));
+        if (data.getBookedUsers() !=null) {
+           sdv_user.setVisibility(View.GONE);
+           sdv_user_rv.setVisibility(View.VISIBLE);
+            sdv_user_rv.setAdapter(new OrderUserRecycleAdapter(data.getBookedUsers(),this));
+
+        }
     }
     @Override
     public void onFailure(Call<OrderEventDetail> call, Throwable t) {
@@ -95,5 +119,8 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         hint = (TextView) findViewById(R.id.order_event_detail_hint);
         user_num = (TextView) findViewById(R.id.order_event_detail_user_num);
         end_time = (TextView) findViewById(R.id.order_event_detail_end_time);
+        sdv_user = (ImageView) findViewById(R.id.order_event_detail_user_icon);
+        sdv_user_rv = (RecyclerView) findViewById(R.id.order_event_detail_user_icon_rv);
+        follow = (TextView) findViewById(R.id.order_event_detail_follow);
     }
 }

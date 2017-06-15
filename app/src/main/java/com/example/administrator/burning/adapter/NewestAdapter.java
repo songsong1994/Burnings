@@ -64,6 +64,8 @@ public class NewestAdapter extends BaseAdapter {
         viewHolder.tv_price.setText("￥"+listBean.getPrice());
         viewHolder.tv_teacher.setText(listBean.getTeacher().getName());
         viewHolder.tv_user.setText(listBean.getTeacher().getNickname());
+        viewHolder.tv_user_type.setText(listBean.getTopic());
+
         return convertView;
     }
     class ViewHolder{
@@ -72,7 +74,7 @@ public class NewestAdapter extends BaseAdapter {
        // private final TextView tv_week;
          TextView tv_user;
          TextView tv_price;
-      //  private final TextView tv_user_type;
+       private final TextView tv_user_type;
         TextView tv_teacher;
          TextView tv_distance;
        TextView tv_address;
@@ -87,7 +89,7 @@ public class NewestAdapter extends BaseAdapter {
           //  tv_week = (TextView) view.findViewById(R.id.item_newest_weektime_tv);
             tv_user = (TextView) view.findViewById(R.id.event_newest_user_tv);
             tv_price = (TextView) view.findViewById(R.id.event_newest_price_tv);
-          //  tv_user_type = (TextView) view.findViewById(R.id.event_newest_user_type);
+           tv_user_type = (TextView) view.findViewById(R.id.event_newest_user_type);
             tv_teacher = (TextView) view.findViewById(R.id.event_newest_teacther_tv);
             tv_distance = (TextView) view.findViewById(R.id.event_newest_distance_tv);
             tv_address = (TextView) view.findViewById(R.id.event_newest_address_tv);

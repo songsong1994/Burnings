@@ -166,6 +166,7 @@ public class OrderEvent {
 
             public void setTopic(String topic) {
                 this.topic = topic;
+
             }
 
             public PhotoBean getPhoto() {
