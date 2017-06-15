@@ -49,8 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             fresco:failureImage="@mipmap/wwh_event_5"
             android:id="@+id/event_newest_coin_iv"
@@ -60,8 +60,7 @@
             android:layout_toRightOf="@id/event_newest_coin_iv"
             android:layout_width="match_parent"
             android:id="@+id/ll"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content">
+            android:layout_height="25dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +70,7 @@
                 android:textColor="#000000"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="|"
                 android:layout_marginRight="2dp"
                 android:layout_marginLeft="2dp"
@@ -86,14 +85,13 @@
                 android:textColor="#000000"/>
             <TextView
                 android:layout_width="60dp"
-                android:layout_height="20dp"
+                android:layout_height="25dp"
                 android:text="报名中"
                 android:textColor="#FFFFFF"
                 android:background="@mipmap/wwh_event_1"
                 android:textSize="14sp"
-                android:layout_marginLeft="2dp"
                 android:gravity="center"
-                android:layout_gravity="center"
+                android:layout_marginLeft="2dp"
                 />
             <ImageView
                 android:layout_width="match_parent"
@@ -108,23 +106,20 @@
             android:layout_width="match_parent"
             android:layout_below="@id/ll"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/event_newest_coin_iv"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/event_newest_coin_iv"
-            >
+            android:layout_height="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="指导："
-                android:textSize="15sp"
+                android:textSize="18sp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="指导老师姓名"
                 android:id="@+id/event_newest_teacther_tv"
-                android:textSize="15sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
     </RelativeLayout>
     <ImageView
@@ -137,13 +132,19 @@
         android:background="#BEBEBE"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:gravity="center_vertical"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/location"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="地址"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:textSize="14sp"
             android:id="@+id/event_newest_address_tv"
             />

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.administrator.burning.OrderEventDetailActivity;
+import com.example.administrator.burning.Past_ItemActivity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -79,7 +79,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
     public void onClick(View v) {
         int position = recyclerView.getChildAdapterPosition(v);
         String id = list.get(position).getId();
-        Intent intent=new Intent(context, OrderEventDetailActivity.class);
+        Intent intent=new Intent(context, Past_ItemActivity.class);
         intent.putExtra("id",id);
         context.startActivity(intent);
     }
