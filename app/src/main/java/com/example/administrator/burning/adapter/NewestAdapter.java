@@ -55,6 +55,13 @@ public class NewestAdapter extends BaseAdapter {
         else{
             viewHolder= (NewestAdapter.ViewHolder) convertView.getTag();
         }
+       // 2017-06-21 12:00:00
+        String time=listBean.getStartTime();
+        int dayIndex=time.lastIndexOf("-");
+        int timeIndex=time.indexOf(":");
+        viewHolder.tv_day.setText(time.substring(dayIndex+1,dayIndex+3));
+        viewHolder.tv_month.setText(time.substring(dayIndex-2,dayIndex));
+        viewHolder.tv_week.setText(time.substring(timeIndex-2,timeIndex+3));
         Uri uri=Uri.parse(listBean.getPhoto().getUrl().toString());
         viewHolder.sdv.setImageURI(uri);
         Uri uri1=Uri.parse(listBean.getTeacher().getAvatar().toString());
@@ -69,9 +76,9 @@ public class NewestAdapter extends BaseAdapter {
         return convertView;
     }
     class ViewHolder{
-        //private final TextView tv_day;
-       // private final TextView tv_month;
-       // private final TextView tv_week;
+        private final TextView tv_day;
+        private final TextView tv_month;
+        private final TextView tv_week;
          TextView tv_user;
          TextView tv_price;
        private final TextView tv_user_type;
@@ -84,9 +91,9 @@ public class NewestAdapter extends BaseAdapter {
         public ViewHolder(View view) {
             sdv = (SimpleDraweeView) view.findViewById(R.id.item_newest_iv);
             sdv_coin = (SimpleDraweeView) view.findViewById(R.id.event_newest_coin_iv);
-          //  tv_day = (TextView)view.findViewById(R.id.item_newest_day_tv);
-          //  tv_month = (TextView) view.findViewById(R.id.item_newest_month_tv);
-          //  tv_week = (TextView) view.findViewById(R.id.item_newest_weektime_tv);
+            tv_day = (TextView)view.findViewById(R.id.item_newest_day_tv);
+            tv_month = (TextView) view.findViewById(R.id.item_newest_month_tv);
+            tv_week = (TextView) view.findViewById(R.id.item_newest_weektime_tv);
             tv_user = (TextView) view.findViewById(R.id.event_newest_user_tv);
             tv_price = (TextView) view.findViewById(R.id.event_newest_price_tv);
            tv_user_type = (TextView) view.findViewById(R.id.event_newest_user_type);
