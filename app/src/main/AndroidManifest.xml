@@ -24,9 +24,10 @@
         <activity android:name=".OrderEventDetailActivity" />
         <activity android:name=".ArtistListActivity" />
         <activity android:name=".ArtistDetailsActivity" />
-        <activity android:name=".PastPhotoActivity"></activity>
-        <activity android:name=".StatusDetailsActivity"></activity>
-        <activity android:name=".Past_ItemActivity"/>
+        <activity android:name=".PastPhotoActivity" />
+        <activity android:name=".StatusDetailsActivity" />
+        <activity android:name=".Past_ItemActivity" />
+        <activity android:name=".ArtifactDetailsActivity"></activity>
     </application>
 
 </manifest>

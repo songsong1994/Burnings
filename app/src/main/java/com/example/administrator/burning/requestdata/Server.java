@@ -6,6 +6,7 @@ import com.example.administrator.burning.beans.HistoryBetails;
 import com.example.administrator.burning.beans.OrderEvent;
 import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.beans.TeacherArtifact;
+import com.example.administrator.burning.beans.TeacherArtifactDetails;
 import com.example.administrator.burning.beans.TeacherDetails;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
@@ -55,7 +56,9 @@ public interface Server {
     //教师作品
     @GET("users/{userId}/artifacts")
     Call<TeacherArtifact> getartifact(@Path("userId") String userId);
-
+    //教师作品详情
+    @GET("artifacts/{id}")
+    Call<TeacherArtifactDetails> getartifactDetails(@Path("id") String id);
     //往期详情
     @GET("events/{id}")
     Call<HistoryBetails> getbetails(@Path("id") String id);

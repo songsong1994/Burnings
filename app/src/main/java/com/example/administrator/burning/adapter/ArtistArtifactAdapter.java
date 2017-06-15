@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.administrator.burning.ArtifactDetailsActivity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.beans.TeacherArtifact;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -19,19 +21,21 @@ import java.util.List;
  * Created by Administrator on 2017/6/14.
  */
 
-public class ArtistArtifactAdapter extends RecyclerView.Adapter<ArtistArtifactAdapter.artifactViewHolder>{
+public class ArtistArtifactAdapter extends RecyclerView.Adapter<ArtistArtifactAdapter.artifactViewHolder> implements View.OnClickListener {
     private Context context;
     private List<TeacherArtifact.DataBean.ListBean> list;
-    private String img;
+    private String img1;
+    private RecyclerView recyclerView;
     public ArtistArtifactAdapter(Context context, List<TeacherArtifact.DataBean.ListBean> list, String img) {
         this.context = context;
         this.list = list;
-        this.img = img;
+        this.img1 = img;
     }
 
     @Override
     public artifactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.artist_artifact_item,parent,false);
+        view.setOnClickListener(this);
         artifactViewHolder holder = new artifactViewHolder(view);
         return holder;
     }
@@ -39,7 +43,7 @@ public class ArtistArtifactAdapter extends RecyclerView.Adapter<ArtistArtifactAd
     @Override
     public void onBindViewHolder(artifactViewHolder holder, int position) {
         TeacherArtifact.DataBean.ListBean bean = list.get(position);
-        Uri uri = Uri.parse(img);
+        Uri uri = Uri.parse(img1);
         holder.img.setImageURI(uri);
         if (bean.getPhoto() != null) {
             Uri uri1 = Uri.parse(bean.getPhoto().getUrl());
@@ -60,8 +64,25 @@ public class ArtistArtifactAdapter extends RecyclerView.Adapter<ArtistArtifactAd
     }
 
     @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
+    }
+
+
+    @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int positing = recyclerView.getChildAdapterPosition(v);
+        String id = list.get(positing).getId();
+        Intent intent = new Intent(context, ArtifactDetailsActivity.class);
+        intent.putExtra("id",id);
+        intent.putExtra("img",img1);
+        context.startActivity(intent);
     }
 
     public class artifactViewHolder extends RecyclerView.ViewHolder{
