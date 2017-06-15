@@ -4,13 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.burning.fragment.ArtistArtifactFragment">
-    <!--老师作品-->
+    <!--老师列表-->
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/artifact_recycler"
-        app:layoutManager="LinearLayoutManager"
+        android:id="@+id/artifact_recycler_list"
+        app:layoutManager="GridLayoutManager"
+        app:spanCount="2"
         />
-
 </FrameLayout>

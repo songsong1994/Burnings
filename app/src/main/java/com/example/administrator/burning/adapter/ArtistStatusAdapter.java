@@ -15,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 
 /**
+ * 教师时刻
  * Created by Administrator on 2017/6/14.
  */
 

@@ -7,11 +7,13 @@ import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.beans.TeacherArtifact;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
+import com.example.administrator.burning.beans.TeacherList;
 import com.example.administrator.burning.beans.TecherStatus;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  *
@@ -39,6 +41,10 @@ public interface Server {
     //教师时刻
     @GET("users/{userId}/statuses")
     Call<TecherStatus> getstatus(@Path("userId") String userId);
+
+    //艺术家列表
+    @GET("teachers")
+    Call<TeacherList> getlist(@Query("page") int id);
 
     //教师作品
     @GET("users/{userId}/artifacts")

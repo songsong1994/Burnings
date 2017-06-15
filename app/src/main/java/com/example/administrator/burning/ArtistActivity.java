@@ -1,5 +1,6 @@
 package com.example.administrator.burning;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
     private View img;
     private String userId;
     private ArtistNullFragment nullf=new ArtistNullFragment();
-    private ArtistFragment fragment = new ArtistFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (data.getEventNum() > 0) {
-
+            ArtistFragment fragment = new ArtistFragment();
             Bundle bundle = new Bundle();
             bundle.putString("userId",userId);
             fragment.setArguments(bundle);
@@ -67,9 +68,16 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
             Uri uri = Uri.parse(data.getBackgroundPhoto().getUrl().toString());
             url.setImageURI(uri);
         }
-        Uri uri1 = Uri.parse(data.getAvatar().toString());
-        avatar.setImageURI(uri1);
-        nickname.setText(data.getName().toString());
+        if (data.getAvatar() != null) {
+            Uri uri1 = Uri.parse(data.getAvatar().toString());
+            avatar.setImageURI(uri1);
+        }
+        if (data.getName() != null) {
+            nickname.setText(data.getName().toString());
+        }else {
+            nickname.setText("不详");
+        }
+
         friendnum.setText(data.getFriendNum()+"");
         followerNum.setText(data.getFollowerNum()+"");
         eventnum.setText(data.getEventNum()+"个");
@@ -99,10 +107,14 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
     public void back(View view){
         this.finish();
     }
+    public void go(View view) {
+        startActivity(new Intent(this,ArtistListActivity.class));
+    }
     public void  fragment_click(View view){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (view.getId()){
             case R.id.fragment_event:
+                ArtistFragment fragment = new ArtistFragment();
                 if (data.getEventNum() > 0) {
                     Bundle bundle = new Bundle();
                     bundle.putString("userId",userId);

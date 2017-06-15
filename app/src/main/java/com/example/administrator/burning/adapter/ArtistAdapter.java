@@ -15,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 
 /**
+ * 教师活动
  * Created by Administrator on 2017/6/12.
  */
 
@@ -59,7 +60,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         }
     }
 
-    @   Override
+    @Override
     public int getItemCount() {
         return list.size();
     }
