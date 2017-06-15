@@ -10,6 +10,7 @@ import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
 import com.example.administrator.burning.beans.TeacherList;
 import com.example.administrator.burning.beans.TecherStatus;
+import com.example.administrator.burning.beans.TecherStatusDetails;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -42,7 +43,8 @@ public interface Server {
     //教师时刻
     @GET("users/{userId}/statuses")
     Call<TecherStatus> getstatus(@Path("userId") String userId);
-
+    @GET("statuses/{id}")
+    Call<TecherStatusDetails> getstatusDetails(@Path("id") String id);
     //艺术家列表
     @GET("teachers")
     Call<TeacherList> getlist(@Query("page") int id);

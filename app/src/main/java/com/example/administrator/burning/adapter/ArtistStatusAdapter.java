@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.burning.R;
+import com.example.administrator.burning.StatusDetailsActivity;
 import com.example.administrator.burning.beans.TecherStatus;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -19,10 +21,11 @@ import java.util.List;
  * Created by Administrator on 2017/6/14.
  */
 
-public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapter.statusViewHolder>{
+public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapter.statusViewHolder> implements View.OnClickListener {
     private Context context;
     private List<TecherStatus.DataBean.ListBean> list;
     private String img;
+    private RecyclerView recyclerView;
     public ArtistStatusAdapter(Context context, List<TecherStatus.DataBean.ListBean> list,String img) {
         this.context = context;
         this.list = list;
@@ -32,6 +35,7 @@ public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapte
     @Override
     public statusViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.artist_recycler_item,parent,false);
+        view.setOnClickListener(this);
         statusViewHolder holder = new statusViewHolder(view);
         return holder;
     }
@@ -67,6 +71,22 @@ public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapte
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = recyclerView.getChildAdapterPosition(v);
+        String id = list.get(position).getId();
+        Intent intent = new Intent(context, StatusDetailsActivity.class);
+        intent.putExtra("id",id);
+        intent.putExtra("img",img);
+        context.startActivity(intent);
     }
 
     public class statusViewHolder extends RecyclerView.ViewHolder{

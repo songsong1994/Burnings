@@ -23,7 +23,8 @@
         <activity android:name=".Home_ListImg_Activity" />
         <activity android:name=".OrderEventDetailActivity" />
         <activity android:name=".ArtistListActivity" />
-        <activity android:name=".ArtistDetailsActivity"></activity>
+        <activity android:name=".ArtistDetailsActivity" />
+        <activity android:name=".StatusDetailsActivity"></activity>
     </application>
 
 </manifest>
