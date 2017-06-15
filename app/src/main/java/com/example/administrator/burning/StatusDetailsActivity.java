@@ -35,8 +35,10 @@ public class StatusDetailsActivity extends AppCompatActivity implements Callback
     @Override
     public void onResponse(Call<TecherStatusDetails> call, Response<TecherStatusDetails> response) {
         TecherStatusDetails.DataBean bean = response.body().getData();
-        Uri uri = Uri.parse(img1);
-        img.setImageURI(uri);
+        if (img1!=null) {
+            Uri uri = Uri.parse(img1);
+            img.setImageURI(uri);
+        }
         if (bean.getPhoto() != null) {
             Uri uri1 = Uri.parse(bean.getPhoto().getUrl());
            bigimg.setImageURI(uri1);

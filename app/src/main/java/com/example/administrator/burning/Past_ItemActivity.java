@@ -1,6 +1,5 @@
 package com.example.administrator.burning;
 
-import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.administrator.burning.adapter.Past_itemActivity_itemAdapter;
 import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.HistoryBetails;
 import com.example.administrator.burning.requestdata.APP;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -24,22 +24,20 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Past_ItemActivity extends AppCompatActivity implements Callback<History> {
+public class Past_ItemActivity extends AppCompatActivity implements Callback<HistoryBetails> {
     private ImageView back;
     private RecyclerView recyclerView;
     private SimpleDraweeView bigicon,authoricon;
     private TextView title,authorname,time,location,textView;
-    private int position;
     private List<History.DataBean.ListBean> data=new ArrayList<>();
-    List<History.DataBean.ListBean.PostsBean> source=new ArrayList<>();
+    List<HistoryBetails.DataBean.EventUsersBean> source=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past__item);
-        Intent intent=getIntent();
-        position=intent.getIntExtra("num",0);
+        String id=getIntent().getStringExtra("id");
         APP app = (APP) getApplication();
-        app.getServer().gethistory().enqueue(this);
+        app.getServer().getbetails(id).enqueue(this);
         init();
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
@@ -70,9 +68,8 @@ public class Past_ItemActivity extends AppCompatActivity implements Callback<His
     }
 
     @Override
-    public void onResponse(Call<History> call, Response<History> response) {
-        data.addAll(response.body().getData().getList());
-        History.DataBean.ListBean listBean=data.get(position);
+    public void onResponse(Call<HistoryBetails> call, Response<HistoryBetails> response) {
+        HistoryBetails.DataBean listBean = response.body().getData();
         Uri uri=Uri.parse(listBean.getPhoto().getUrl());
         bigicon.setImageURI(uri);
         title.setText(listBean.getTopic());
@@ -81,15 +78,15 @@ public class Past_ItemActivity extends AppCompatActivity implements Callback<His
         authorname.setText(listBean.getTeacher().getName());
         time.setText(listBean.getStartTime());
         location.setText(listBean.getLocation().getName());
-        source=data.get(position).getPosts();
+        source= listBean.getEventUsers();
         Past_itemActivity_itemAdapter past_itemActivity_itemAdapter = new Past_itemActivity_itemAdapter(source, this);
         recyclerView.setAdapter(past_itemActivity_itemAdapter);
-        int a=data.get(position).getPosts().size();
+        int a= listBean.getEventUsers().size();
         textView.setText("共"+a+"张动态，看看燃友的燃时刻");
     }
 
     @Override
-    public void onFailure(Call<History> call, Throwable t) {
+    public void onFailure(Call<HistoryBetails> call, Throwable t) {
         t.printStackTrace();
     }
 }

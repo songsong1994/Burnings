@@ -2,6 +2,7 @@ package com.example.administrator.burning.requestdata;
 
 import com.example.administrator.burning.bean.Space;
 import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.HistoryBetails;
 import com.example.administrator.burning.beans.OrderEvent;
 import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.beans.TeacherArtifact;
@@ -55,6 +56,9 @@ public interface Server {
     @GET("users/{userId}/artifacts")
     Call<TeacherArtifact> getartifact(@Path("userId") String userId);
 
+    //往期详情
+    @GET("events/{id}")
+    Call<HistoryBetails> getbetails(@Path("id") String id);
     @GET("home")
     Call<Space>getSpace();
     //最新活动列表

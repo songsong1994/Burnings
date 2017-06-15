@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.administrator.burning.R;
-import com.example.administrator.burning.beans.History;
+import com.example.administrator.burning.beans.HistoryBetails;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -19,10 +19,10 @@ import java.util.List;
 
 public class Past_itemActivity_itemAdapter extends RecyclerView.Adapter<Past_itemActivity_itemAdapter.ViewHolder>{
 
-    private List<History.DataBean.ListBean.PostsBean> data;
+    private List<HistoryBetails.DataBean.EventUsersBean> data;
     private Context context;
 
-    public Past_itemActivity_itemAdapter(List<History.DataBean.ListBean.PostsBean> data, Context context) {
+    public Past_itemActivity_itemAdapter(List<HistoryBetails.DataBean.EventUsersBean> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -36,7 +36,7 @@ public class Past_itemActivity_itemAdapter extends RecyclerView.Adapter<Past_ite
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Uri uri=Uri.parse(data.get(position).getPhoto().getUrl());
+        Uri uri=Uri.parse(data.get(position).getAvatar());
         holder.image.setImageURI(uri);
 
     }

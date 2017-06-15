@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.administrator.burning.PastPhotoActivity;
 import com.example.administrator.burning.Past_ItemActivity;
 import com.example.administrator.burning.R;
+import com.example.administrator.burning.StatusDetailsActivity;
 import com.example.administrator.burning.beans.History;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -28,7 +29,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
     private Context context;
     private List<History.DataBean.ListBean> data;
     private boolean iscollection=false;
-
+    private String id,img;
 
 
     public PastFragmentAdapter(Context context, List<History.DataBean.ListBean> data) {
@@ -86,10 +87,21 @@ public class PastFragmentAdapter extends BaseAdapter  {
       else if(listBean.getPosts().size()==1){
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                id = listBean.getPosts().get(0).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           //viewHolder.icon1.setVisibility(View.VISIBLE);
@@ -199,7 +211,9 @@ public class PastFragmentAdapter extends BaseAdapter  {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, Past_ItemActivity.class);
-                intent.putExtra("num",position);
+                String id = data.get(position).getId();
+                intent.putExtra("id",id);
+
                 context.startActivity(intent);
             }
         });
