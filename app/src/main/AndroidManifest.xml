@@ -26,6 +26,7 @@
         <activity android:name=".ArtistDetailsActivity" />
         <activity android:name=".PastPhotoActivity"></activity>
         <activity android:name=".StatusDetailsActivity"></activity>
+        <activity android:name=".Past_ItemActivity"/>
     </application>
 
 </manifest>
