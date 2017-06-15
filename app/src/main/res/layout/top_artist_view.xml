@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +23,7 @@
         >
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:scaleType="fitXY"
         fresco:failureImage="@mipmap/image_loading_icon"
         android:background="@mipmap/image_loading_icon"
@@ -27,7 +31,7 @@
         />
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:background="#000"
             android:id="@+id/introduce_bg_image"
             />
@@ -55,8 +59,8 @@
         android:orientation="vertical"
         >
         <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="60dp"
             android:id="@+id/artist_top_avatar"
             fresco:viewAspectRatio="1"
@@ -274,3 +278,4 @@
         ></FrameLayout>
     </RelativeLayout>
 </RelativeLayout>
+</ScrollView>
