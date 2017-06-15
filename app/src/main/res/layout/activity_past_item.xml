@@ -142,6 +142,7 @@
             android:scaleType="fitXY"
             />
         <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_marginLeft="10dp"
             android:id="@+id/action_past_layout5_iv2_id"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -152,6 +153,7 @@
             android:scaleType="fitXY"
             />
         <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_marginLeft="10dp"
             android:id="@+id/action_past_layout5_iv3_id"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -162,6 +164,7 @@
             android:scaleType="fitXY"
             />
         <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_marginLeft="10dp"
             android:id="@+id/action_past_layout5_iv4_id"
             android:layout_width="0dp"
             android:layout_weight="1"

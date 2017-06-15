@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.administrator.burning.PastPhotoActivity;
 import com.example.administrator.burning.Past_ItemActivity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.StatusDetailsActivity;
@@ -104,24 +103,45 @@ public class PastFragmentAdapter extends BaseAdapter  {
                         context.startActivity(intent);
                     }
                 });
-          //viewHolder.icon1.setVisibility(View.VISIBLE);
       }
         else if(listBean.getPosts().size()==2){
             Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
             viewHolder.icon1.setImageURI(uri1);
+                id = listBean.getPosts().get(0).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
            // viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
+                id = listBean.getPosts().get(1).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
          // viewHolder.icon2.setVisibility(View.VISIBLE);
@@ -129,28 +149,61 @@ public class PastFragmentAdapter extends BaseAdapter  {
       else if(listBean.getPosts().size()==3){
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                id = listBean.getPosts().get(0).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           //viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
+                id = listBean.getPosts().get(1).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
          // viewHolder.icon2.setVisibility(View.VISIBLE);
           Uri uri3=Uri.parse(listBean.getPosts().get(2).getPhoto().getUrl());
           viewHolder.icon3.setImageURI(uri3);
+                id = listBean.getPosts().get(2).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           //viewHolder.icon3.setVisibility(View.VISIBLE);
@@ -158,28 +211,61 @@ public class PastFragmentAdapter extends BaseAdapter  {
       else {
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                id = listBean.getPosts().get(0).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           //viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
+                id = listBean.getPosts().get(1).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           // viewHolder.icon2.setVisibility(View.VISIBLE);
           Uri uri3=Uri.parse(listBean.getPosts().get(2).getPhoto().getUrl());
           viewHolder.icon3.setImageURI(uri3);
+                id = listBean.getPosts().get(2).getId();
+                if (listBean!=null) {
+                    if (listBean.getTeacher() != null) {
+                        if (listBean.getTeacher().getAvatar() != null) {
+                            img = listBean.getTeacher().getAvatar();
+                        }
+                    }
+                }
                 viewHolder.icon3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        context.startActivity(new Intent(context, PastPhotoActivity.class));
+                        Intent intent=new Intent(context, StatusDetailsActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("img",img);
+                        context.startActivity(intent);
                     }
                 });
           //viewHolder.icon3.setVisibility(View.VISIBLE);
