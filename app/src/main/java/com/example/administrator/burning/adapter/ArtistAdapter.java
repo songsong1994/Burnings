@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.administrator.burning.Past_ItemActivity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -19,9 +21,10 @@ import java.util.List;
  * Created by Administrator on 2017/6/12.
  */
 
-public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder> {
+public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistViewHolder> implements View.OnClickListener {
     private Context context;
     private List<TeacherEvents.DataBean.ListBean> list;
+    private RecyclerView recyclerView;
     public ArtistAdapter(Context context, List<TeacherEvents.DataBean.ListBean> list) {
         this.context = context;
         this.list = list;
@@ -30,6 +33,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
     @Override
     public ArtistViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_artist_layout,parent,false);
+        view.setOnClickListener(this);
         ArtistViewHolder holder = new ArtistViewHolder(view);
         return holder;
     }
@@ -64,6 +68,23 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
     public int getItemCount() {
         return list.size();
     }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = recyclerView.getChildAdapterPosition(v);
+        String id = list.get(position).getId();
+        Intent intent=new Intent(context, Past_ItemActivity.class);
+        intent.putExtra("id",id);
+        context.startActivity(intent);
+    }
+
+
 
     public class ArtistViewHolder extends RecyclerView.ViewHolder{
         public SimpleDraweeView simpleDraweeView;

@@ -104,6 +104,11 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
         statusNum1 = (TextView) findViewById(R.id.introduce_statusNum1);
         artifactNum1 = (TextView) findViewById(R.id.introduce_artifactNum1);
     }
+    public void more(View view){
+        Intent intent = new Intent(this,ArtistDetailsActivity.class);
+        intent.putExtra("userId",userId);
+        startActivity(intent);
+    }
     public void back(View view){
         this.finish();
     }

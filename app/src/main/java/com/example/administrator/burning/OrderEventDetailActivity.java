@@ -2,8 +2,8 @@ package com.example.administrator.burning;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,10 +16,6 @@ import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.requestdata.APP;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,17 +75,27 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
     @Override
     public void onResponse(Call<OrderEventDetail> call, Response<OrderEventDetail> response) {
         data = response.body().getData();
-        Uri uri=Uri.parse(data.getPhoto().getUrl().toString());
-        Uri uri1=Uri.parse(data.getTeacher().getAvatar().toString());
-        sdv.setImageURI(uri);
-        teacher_icon.setImageURI(uri1);
-        start_time_tv.setText(data.getStartTime());
+        if (data.getPhoto() != null) {
+            Uri uri=Uri.parse(data.getPhoto().getUrl().toString());
+            sdv.setImageURI(uri);
+        }
+        if (data.getTeacher() != null) {
+            Uri uri1=Uri.parse(data.getTeacher().getAvatar().toString());
+            teacher_icon.setImageURI(uri1);
+        }
+        if (data.getStartTime() != null) {
+            start_time_tv.setText(data.getStartTime());
+        }
         enroll_num.setText("报名人数"+data.getSelledTicketCount()+"/"+data.getTicketCount());
         topic.setText(data.getTopic());
         photo_type.setText(data.getTopic());
         price.setText("￥"+data.getPrice());
-        teacher_name.setText(data.getTeacher().getName());
-        address_name.setText(data.getLocation().getName());
+        if (data.getTeacher() != null) {
+            teacher_name.setText(data.getTeacher().getName());
+        }
+        if (data.getLocation() != null) {
+            address_name.setText(data.getLocation().getName());
+        }
         hint.setText(data.getBookingRequirement());
         user_num.setText(data.getSelledTicketCount()+"位燃伙伴已报名");
         String time=data.getEndTime();

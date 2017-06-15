@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="25dp"
             android:onClick="onClick"
             android:id="@+id/order_event_detail_return"
-            android:src="@mipmap/back_white"
+            android:src="@mipmap/go_back_black_icon"
+            android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -30,17 +31,20 @@
         <ImageView
             android:id="@+id/iv1"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:layout_width="25dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/shar_icon_white"
             android:layout_alignParentRight="true"
             />
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="25dp"
             android:layout_toLeftOf="@id/iv1"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:src="@mipmap/wwh_event_star_3"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/center_mark_white_icon1"
             />
     </RelativeLayout>
     <ScrollView
@@ -89,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/order_event_detail_topic"
-                    android:text="话题"
+                    android:text=""
                     android:textSize="18sp"
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
@@ -97,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="价格"
+                    android:text=""
                     android:id="@+id/order_event_detail_price"
                     android:layout_centerVertical="true"
                     android:textColor="#FF0000"
