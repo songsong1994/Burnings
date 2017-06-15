@@ -38,7 +38,7 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
     private TextView end_time;
     private RecyclerView sdv_user_rv;
     private ImageView sdv_user;
-    private TextView follow;
+    private TextView photo_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +88,7 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         }
         enroll_num.setText("报名人数"+data.getSelledTicketCount()+"/"+data.getTicketCount());
         topic.setText(data.getTopic());
+        photo_type.setText(data.getTopic());
         price.setText("￥"+data.getPrice());
         if (data.getTeacher() != null) {
             teacher_name.setText(data.getTeacher().getName());
@@ -127,6 +128,6 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         end_time = (TextView) findViewById(R.id.order_event_detail_end_time);
         sdv_user = (ImageView) findViewById(R.id.order_event_detail_user_icon);
         sdv_user_rv = (RecyclerView) findViewById(R.id.order_event_detail_user_icon_rv);
-        follow = (TextView) findViewById(R.id.order_event_detail_follow);
+        photo_type = (TextView) findViewById(R.id.order_event_detail_photo_type);
     }
 }
