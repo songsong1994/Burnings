@@ -54,6 +54,7 @@ private Button bt1,event_city_but;
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.event_fragment_id,new PastFragment());
                 transaction.commit();
+
             }
         });
         bt2 = (Button) view.findViewById(R.id.event_newest_but);

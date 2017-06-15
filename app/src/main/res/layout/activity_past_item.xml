@@ -5,12 +5,19 @@
     android:layout_height="match_parent"
     android:background="#fff"
     >
+   <LinearLayout
+       android:id="@+id/past_first_linearlayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/action_past_iv_id"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         fresco:failureImage="@mipmap/wwh_event_2"
         android:layout_gravity="center"
+        fresco:placeholderImage="@mipmap/wwh_event_2"
+        fresco:placeholderImageScaleType="fitCenter"
         android:gravity="center"
         android:scaleType="fitXY"
         />
@@ -38,6 +45,7 @@
             android:src="@mipmap/groupstart"
             android:background="@null"
             android:layout_alignParentRight="true"
+            android:focusable="false"
             />
     </RelativeLayout>
     <LinearLayout
@@ -113,11 +121,14 @@
         android:textSize="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="30dp"/>
+    </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:id="@+id/action_past_layout4"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="30dp"
         android:orientation="horizontal">
         <com.facebook.drawee.view.SimpleDraweeView

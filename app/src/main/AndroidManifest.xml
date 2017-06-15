@@ -19,11 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OrderEventDetailActivity" />
         <activity android:name=".ArtistActivity" />
+        <activity android:name=".Past_ItemActivity" />
         <activity android:name=".Home_ListImg_Activity" />
         <activity android:name=".OrderEventDetailActivity" />
         <activity android:name=".ArtistListActivity" />
-        <activity android:name=".ArtistDetailsActivity"></activity>
+        <activity android:name=".ArtistDetailsActivity" />
+        <activity android:name=".PastPhotoActivity"></activity>
     </application>
 
 </manifest>
