@@ -5,6 +5,7 @@ import com.example.administrator.burning.beans.History;
 import com.example.administrator.burning.beans.OrderEvent;
 import com.example.administrator.burning.beans.OrderEventDetail;
 import com.example.administrator.burning.beans.TeacherArtifact;
+import com.example.administrator.burning.beans.TeacherDetails;
 import com.example.administrator.burning.beans.TeacherEvents;
 import com.example.administrator.burning.beans.TeacherIntroduce;
 import com.example.administrator.burning.beans.TeacherList;
@@ -30,7 +31,7 @@ public interface Server {
     @GET("events/history?eetpn=3")
     Call<History> gethistory();
 
-    //教师个人详情
+    //教师个人信息
     @GET("users/{userId}/info")
     Call<TeacherIntroduce> getintroduce(@Path("userId") String userId);
 
@@ -45,14 +46,16 @@ public interface Server {
     //艺术家列表
     @GET("teachers")
     Call<TeacherList> getlist(@Query("page") int id);
-
+    //教师详情
+    @GET("teachers/{userId}/intro")
+    Call<TeacherDetails> getdetails(@Path("userId") String userId);
     //教师作品
     @GET("users/{userId}/artifacts")
     Call<TeacherArtifact> getartifact(@Path("userId") String userId);
 
     @GET("home")
     Call<Space>getSpace();
-//最新活动列表
+    //最新活动列表
     @GET ("events/booking")
     Call<OrderEvent> getOrderEvent();
     //最新活动列表详情

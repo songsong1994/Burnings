@@ -21,8 +21,9 @@
         </activity>
         <activity android:name=".ArtistActivity" />
         <activity android:name=".Home_ListImg_Activity" />
-        <activity android:name=".OrderEventDetailActivity"></activity>
-        <activity android:name=".ArtistListActivity"></activity>
+        <activity android:name=".OrderEventDetailActivity" />
+        <activity android:name=".ArtistListActivity" />
+        <activity android:name=".ArtistDetailsActivity"></activity>
     </application>
 
 </manifest>
