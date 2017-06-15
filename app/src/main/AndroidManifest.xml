@@ -24,6 +24,8 @@
         <activity android:name=".OrderEventDetailActivity" />
         <activity android:name=".ArtistListActivity" />
         <activity android:name=".ArtistDetailsActivity" />
+        <activity android:name=".PastPhotoActivity"></activity>
+        <activity android:name=".ArtistDetailsActivity" />
         <activity android:name=".StatusDetailsActivity"></activity>
     </application>
 
