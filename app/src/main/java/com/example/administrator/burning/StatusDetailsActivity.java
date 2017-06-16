@@ -46,11 +46,13 @@ public class StatusDetailsActivity extends AppCompatActivity implements Callback
         if (bean.getUser() != null) {
             name.setText(bean.getUser().getName());
         }
-        String time=bean.getCreated();
-        StringBuffer buffer = new StringBuffer(time);
-        StringBuffer delete = buffer.delete(0, 5);
-        StringBuffer delete1 = delete.delete(11, 14);
-        date.setText(delete1.toString());
+        if (bean.getCreated() != null) {
+            String time=bean.getCreated();
+            StringBuffer buffer = new StringBuffer(time);
+            StringBuffer delete = buffer.delete(0, 5);
+            StringBuffer delete1 = delete.delete(11, 14);
+            date.setText(delete1.toString());
+        }
         liked.setText(bean.getLikeNum()+"");
         mark.setText(bean.getMarkNum()+"");
         comment.setText(bean.getCommentNum() + "");
