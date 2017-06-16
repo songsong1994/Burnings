@@ -76,16 +76,20 @@ public class PastFragmentAdapter extends BaseAdapter  {
         }
         viewHolder.tv4_location.setText(listBean.getLocation().getName());
         viewHolder.tv5_time.setText(listBean.getStartTime());
-//        if (listBean.getPosts().size()>0) {
-//            Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
-//            viewHolder.icon1.setImageURI(uri1);
-//        }
-            if(listBean.getPosts().size()==0){
 
+            if(listBean.getPosts().size()==0){
+                viewHolder.icon1.setVisibility(View.INVISIBLE);
+                viewHolder.icon2.setVisibility(View.INVISIBLE);
+                viewHolder.icon3.setVisibility(View.INVISIBLE);
+                viewHolder.icon4.setVisibility(View.INVISIBLE);
             }
       else if(listBean.getPosts().size()==1){
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                viewHolder.icon1.setVisibility(View.VISIBLE);
+                viewHolder.icon2.setVisibility(View.INVISIBLE);
+                viewHolder.icon3.setVisibility(View.INVISIBLE);
+                viewHolder.icon4.setVisibility(View.INVISIBLE);
                 id = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
@@ -107,6 +111,10 @@ public class PastFragmentAdapter extends BaseAdapter  {
         else if(listBean.getPosts().size()==2){
             Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
             viewHolder.icon1.setImageURI(uri1);
+                viewHolder.icon1.setVisibility(View.VISIBLE);
+                viewHolder.icon2.setVisibility(View.VISIBLE);
+                viewHolder.icon3.setVisibility(View.INVISIBLE);
+                viewHolder.icon4.setVisibility(View.INVISIBLE);
                 id = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
@@ -149,6 +157,10 @@ public class PastFragmentAdapter extends BaseAdapter  {
       else if(listBean.getPosts().size()==3){
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                viewHolder.icon1.setVisibility(View.VISIBLE);
+                viewHolder.icon2.setVisibility(View.VISIBLE);
+                viewHolder.icon3.setVisibility(View.VISIBLE);
+                viewHolder.icon4.setVisibility(View.INVISIBLE);
                 id = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
@@ -211,6 +223,10 @@ public class PastFragmentAdapter extends BaseAdapter  {
       else {
           Uri uri1=Uri.parse(listBean.getPosts().get(0).getPhoto().getUrl());
           viewHolder.icon1.setImageURI(uri1);
+                viewHolder.icon1.setVisibility(View.VISIBLE);
+                viewHolder.icon2.setVisibility(View.VISIBLE);
+                viewHolder.icon3.setVisibility(View.VISIBLE);
+                viewHolder.icon4.setVisibility(View.VISIBLE);
                 id = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {

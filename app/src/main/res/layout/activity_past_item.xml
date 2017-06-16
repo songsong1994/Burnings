@@ -16,8 +16,6 @@
         android:layout_height="300dp"
         fresco:failureImage="@mipmap/wwh_event_2"
         android:layout_gravity="center"
-        fresco:placeholderImage="@mipmap/wwh_event_2"
-        fresco:placeholderImageScaleType="fitCenter"
         android:gravity="center"
         android:scaleType="fitXY"
         />
