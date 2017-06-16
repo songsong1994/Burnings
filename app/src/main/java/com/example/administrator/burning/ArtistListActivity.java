@@ -38,7 +38,7 @@ public class ArtistListActivity extends AppCompatActivity implements Callback<Te
             @Override
             public void onScrolled(final RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if (dy > 0) {
+                if (dy > 0 && page<2) {
                     //第一个Item位置
                     int visibleItemCount = layoutManager.getChildCount();
                     //当前可见的Item个数

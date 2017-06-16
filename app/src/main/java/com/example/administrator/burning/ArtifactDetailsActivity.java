@@ -16,7 +16,7 @@ import retrofit2.Response;
 
 public class ArtifactDetailsActivity extends AppCompatActivity implements Callback<TeacherArtifactDetails> {
     private SimpleDraweeView img,bigimg;
-    private TextView name,date,body,time,size,liked,mark,comment;
+    private TextView name,date,body,time,size,liked,mark,comment,right1,left1;
     private APP app;
     private String img1,id;
     @Override
@@ -62,8 +62,16 @@ public class ArtifactDetailsActivity extends AppCompatActivity implements Callba
 
         }
         if (bean.getArtifactName() != null) {
-            body.setText(bean.getArtifactName());
-
+            String name = bean.getArtifactName();
+            String right = name.substring(0,1);
+            String left  = name.substring(name.length()-1,name.length());
+            if(right.equals("《") || left.equals("》")) {
+                left1.setText("");
+                right1.setText("");
+                body.setText(bean.getArtifactName());
+            }else {
+                body.setText(bean.getArtifactName());
+            }
         }
     }
     public void back(View view){
@@ -84,5 +92,7 @@ public class ArtifactDetailsActivity extends AppCompatActivity implements Callba
         liked = (TextView) findViewById(R.id.artist_rec_liked1);
         comment = (TextView) findViewById(R.id.artist_rec_comment1);
         size = (TextView) findViewById(R.id.artifact_size1);
+        right1 = (TextView) findViewById(R.id.artifact_rec_right1);
+        left1  = (TextView) findViewById(R.id.artifact_rec_left1);
     }
 }
