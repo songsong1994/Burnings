@@ -49,6 +49,9 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:placeholderImageScaleType="centerCrop"
+                fresco:roundAsCircle="true"
                 android:layout_marginTop="30dp"/>
             <TextView
                 android:id="@+id/past_item_authorname"
