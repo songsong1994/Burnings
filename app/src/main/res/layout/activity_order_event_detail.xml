@@ -241,7 +241,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="本活动开始前一天晚上8点报名未满5人将会自动取消。\n所有活动不支持任何形式的现金退款，只可退至本平台余额账户。\n如在活动开始前24小时前取消预约，您支付的金额将退还至平台余额账户供未来预约使用。\n绘画区域不可携带8岁以下儿童入场。\n任何疑问请拨打：400-8088-303。\n请仔细阅读本条款，点击同意后即可预约活动。" />
-
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -249,6 +252,10 @@
                 android:text="400-8088-303"
                 android:drawableTop="@mipmap/phone_icon"
                 android:textColor="#000000"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
