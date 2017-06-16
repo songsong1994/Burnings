@@ -73,11 +73,12 @@
     <Button
         android:gravity="center"
         android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="#fff"
+        android:textSize="15dp"
         android:text="+关注"
 
         android:background="@mipmap/boostrap_login_button_bg"/>
