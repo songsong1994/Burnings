@@ -1,7 +1,8 @@
 package com.example.administrator.burning;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.administrator.burning.adapter.HomeListAdapter;
@@ -40,5 +41,8 @@ public class Home_ListImg_Activity extends AppCompatActivity implements Callback
     @Override
     public void onFailure(Call<Space> call, Throwable t) {
 
+    }
+    public void back(View view){
+        this.finish();
     }
 }
