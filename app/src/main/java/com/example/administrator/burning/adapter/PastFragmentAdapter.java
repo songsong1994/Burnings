@@ -28,7 +28,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
     private Context context;
     private List<History.DataBean.ListBean> data;
     private boolean iscollection=false;
-    private String id,img;
+    private String id1,id2,id3,img;
 
 
     public PastFragmentAdapter(Context context, List<History.DataBean.ListBean> data) {
@@ -90,7 +90,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                 viewHolder.icon2.setVisibility(View.INVISIBLE);
                 viewHolder.icon3.setVisibility(View.INVISIBLE);
                 viewHolder.icon4.setVisibility(View.INVISIBLE);
-                id = listBean.getPosts().get(0).getId();
+                id1= listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -102,7 +102,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id1);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -115,7 +115,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                 viewHolder.icon2.setVisibility(View.VISIBLE);
                 viewHolder.icon3.setVisibility(View.INVISIBLE);
                 viewHolder.icon4.setVisibility(View.INVISIBLE);
-                id = listBean.getPosts().get(0).getId();
+                id1 = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -127,7 +127,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id1);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -135,7 +135,8 @@ public class PastFragmentAdapter extends BaseAdapter  {
            // viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
-                id = listBean.getPosts().get(1).getId();
+                id2 = listBean.getPosts().get(1).getId();
+
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -147,7 +148,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id2);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -161,7 +162,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                 viewHolder.icon2.setVisibility(View.VISIBLE);
                 viewHolder.icon3.setVisibility(View.VISIBLE);
                 viewHolder.icon4.setVisibility(View.INVISIBLE);
-                id = listBean.getPosts().get(0).getId();
+                id1 = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -173,7 +174,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id1);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -181,7 +182,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
           //viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
-                id = listBean.getPosts().get(1).getId();
+                id2 = listBean.getPosts().get(1).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -193,7 +194,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id2);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -201,7 +202,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
          // viewHolder.icon2.setVisibility(View.VISIBLE);
           Uri uri3=Uri.parse(listBean.getPosts().get(2).getPhoto().getUrl());
           viewHolder.icon3.setImageURI(uri3);
-                id = listBean.getPosts().get(2).getId();
+                id3 = listBean.getPosts().get(2).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -213,7 +214,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id3);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -227,7 +228,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                 viewHolder.icon2.setVisibility(View.VISIBLE);
                 viewHolder.icon3.setVisibility(View.VISIBLE);
                 viewHolder.icon4.setVisibility(View.VISIBLE);
-                id = listBean.getPosts().get(0).getId();
+                id1 = listBean.getPosts().get(0).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -239,7 +240,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id1);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -247,7 +248,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
           //viewHolder.icon1.setVisibility(View.VISIBLE);
           Uri uri2=Uri.parse(listBean.getPosts().get(1).getPhoto().getUrl());
           viewHolder.icon2.setImageURI(uri2);
-                id = listBean.getPosts().get(1).getId();
+                id2 = listBean.getPosts().get(1).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -259,7 +260,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id2);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
@@ -267,7 +268,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
           // viewHolder.icon2.setVisibility(View.VISIBLE);
           Uri uri3=Uri.parse(listBean.getPosts().get(2).getPhoto().getUrl());
           viewHolder.icon3.setImageURI(uri3);
-                id = listBean.getPosts().get(2).getId();
+                id3 = listBean.getPosts().get(2).getId();
                 if (listBean!=null) {
                     if (listBean.getTeacher() != null) {
                         if (listBean.getTeacher().getAvatar() != null) {
@@ -279,7 +280,7 @@ public class PastFragmentAdapter extends BaseAdapter  {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(context, StatusDetailsActivity.class);
-                        intent.putExtra("id",id);
+                        intent.putExtra("id",id3);
                         intent.putExtra("img",img);
                         context.startActivity(intent);
                     }
