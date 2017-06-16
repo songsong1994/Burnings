@@ -43,7 +43,6 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
 
         TeacherEvents.DataBean.ListBean bean = list.get(position);
         if (bean.getPhoto()!=null) {
-
             Uri uri = Uri.parse(bean.getPhoto().getUrl());
             holder.simpleDraweeView.setImageURI(uri);
         }
@@ -53,7 +52,6 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
         }else {
             holder.authorname.setText("不详");
         }
-
         holder.date.setText(bean.getStartTime());
         if (bean.getLocation()!=null) {
             holder.site.setText(bean.getLocation().getName());
