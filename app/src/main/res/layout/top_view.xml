@@ -26,24 +26,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#fff"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            >
             <Button
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@null"
                 android:id="@+id/suject"
-                android:text="燃专辑"/>
+                android:text="燃专辑"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/topic_index_icon1"
+                />
             <Button
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/circle"
+                android:background="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/circle_index_icon1"
                 android:text="燃圈子"/>
             <Button
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@null"
                 android:id="@+id/artist"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/artist_index_icon1"
                 android:text="艺术家"/>
         </LinearLayout>
         <FrameLayout
@@ -162,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:text="圈子精选"
                 android:layout_marginLeft="20dp"
-                android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 />
