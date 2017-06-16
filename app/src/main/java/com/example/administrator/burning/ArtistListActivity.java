@@ -66,12 +66,15 @@ public class ArtistListActivity extends AppCompatActivity implements Callback<Te
         });
     }
 
-
     @Override
     public void onResponse(Call<TeacherList> call, Response<TeacherList> response) {
         list = response.body().getData().getList();
         adapter = new ArtistListAdapter(ArtistListActivity.this,list);
         recyclerView.setAdapter(adapter);
+//        int spanCount = 3;
+//        int spacing = 30;
+//        boolean includeEdge = false;
+//        recyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount,spacing,includeEdge));
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {

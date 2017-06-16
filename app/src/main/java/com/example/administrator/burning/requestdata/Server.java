@@ -1,5 +1,6 @@
 package com.example.administrator.burning.requestdata;
 
+import com.example.administrator.burning.bean.HomeListData;
 import com.example.administrator.burning.bean.Space;
 import com.example.administrator.burning.beans.History;
 import com.example.administrator.burning.beans.HistoryBetails;
@@ -70,4 +71,6 @@ public interface Server {
     //最新活动列表详情
     @GET ("events/{string}/booking_detail")
     Call<OrderEventDetail> getDetail(@Path("string") String string);
+    @GET("statuses/choicest?page=2&base=5909646998e53d25e53df025")
+    Call<HomeListData> getHomeListData();
 }

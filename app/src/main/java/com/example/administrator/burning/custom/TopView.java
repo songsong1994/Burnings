@@ -8,11 +8,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.administrator.burning.ArtistListActivity;
 import com.example.administrator.burning.Home_ListImg_Activity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.adapter.TopPagerAdapter;
@@ -50,6 +52,12 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
     private List<ImageView>imgs;
     private List<SimpleDraweeView> datas;
     private  LinearLayout radios;
+    private Button subjects;
+    private Button circle;
+    private Button artist;
+    private FrameLayout moreArtist;
+    private FrameLayout moreSubject;
+    private FrameLayout moreCircle;
 
     public TopView(@NonNull Context context) {
         super(context);
@@ -68,8 +76,42 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
         app.getServer().getSpace().enqueue(this);
         pager.addOnPageChangeListener(this);
         toList.setOnClickListener(this);
+        subjects.setOnClickListener(this);
+        circle.setOnClickListener(this);
+        artist.setOnClickListener(this);
+        moreArtist.setOnClickListener(this);
+        moreCircle.setOnClickListener(this);
+        moreSubject.setOnClickListener(this);
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.to_home_list:
+                context.startActivity(new Intent(context, Home_ListImg_Activity.class));
+                break;
+            case R.id.suject:
+                context.startActivity(new Intent(context,Home_ListImg_Activity.class));
+                break;
+            case R.id.artist:
+                context.startActivity(new Intent(context,ArtistListActivity.class));
+                break;
+            case R.id.circle:
+
+                break;
+            case R.id.more_artist:
+                context.startActivity(new Intent(context,ArtistListActivity.class));
+                break;
+            case R.id.more_subject:
+                context.startActivity(new Intent(context,Home_ListImg_Activity.class));
+                break;
+            case R.id.more_circle:
+
+                break;
+
+        }
     }
 
     private void init() {
@@ -80,6 +122,12 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
         title = (TextView) findViewById(R.id.title_burning);
         subject = (TextView) findViewById(R.id.subject_burning);
         toList = (FrameLayout) findViewById(R.id.to_home_list);
+        subjects = (Button) findViewById(R.id.suject);
+        circle = (Button) findViewById(R.id.circle);
+        artist = (Button) findViewById(R.id.artist);
+        moreArtist = (FrameLayout) findViewById(R.id.more_artist);
+        moreCircle = (FrameLayout) findViewById(R.id.more_circle);
+        moreSubject = (FrameLayout) findViewById(R.id.more_subject);
     }
 
     @Override
@@ -137,8 +185,4 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
 
     }
 
-    @Override
-    public void onClick(View v) {
-        context.startActivity(new Intent(context, Home_ListImg_Activity.class));
-    }
 }
