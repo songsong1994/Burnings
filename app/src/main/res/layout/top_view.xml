@@ -64,8 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/more_artist"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -100,6 +99,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:id="@+id/more_subject">
             <LinearLayout
                 android:layout_width="3dp"
@@ -163,12 +163,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/more_circle"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
             >
             <LinearLayout
                 android:layout_width="3dp"
                 android:layout_height="18dp"
                 android:background="#D7183E"
+                android:layout_marginBottom="10dp"
                 android:layout_gravity="center_vertical"
                 ></LinearLayout>
             <TextView
