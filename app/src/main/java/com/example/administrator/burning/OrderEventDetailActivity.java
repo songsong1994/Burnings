@@ -2,6 +2,7 @@ package com.example.administrator.burning;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,7 +50,9 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         init();
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        sdv_user_rv.setLayoutManager(linearLayoutManager);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+            sdv_user_rv.setLayoutManager(linearLayoutManager);
+        }
         Fresco.initialize(this);
         APP app = (APP) this.getApplication();
         app.getServer().getDetail(path).enqueue(this);
