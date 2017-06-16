@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
@@ -41,11 +42,11 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_newest_iv"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_marginTop="10dp"
         android:src="@mipmap/wwh_event_6" />
     <RelativeLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
@@ -56,7 +57,6 @@
             android:id="@+id/event_newest_coin_iv"
             />
         <LinearLayout
-
             android:layout_toRightOf="@id/event_newest_coin_iv"
             android:layout_width="match_parent"
             android:id="@+id/ll"
@@ -65,31 +65,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="用户名"
+                android:textStyle="bold"
                 android:id="@+id/event_newest_user_tv"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:textColor="#000000"/>
             <TextView
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="|"
                 android:layout_marginRight="2dp"
                 android:layout_marginLeft="2dp"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:textColor="#000000"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="油画"
+                android:background="@null"
                 android:id="@+id/event_newest_user_type"
-                android:textSize="25sp"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textColor="#000000"/>
             <TextView
                 android:layout_width="60dp"
-                android:layout_height="25dp"
+                android:layout_height="20dp"
                 android:text="报名中"
                 android:textColor="#FFFFFF"
                 android:background="@mipmap/wwh_event_1"
-                android:textSize="14sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_marginLeft="2dp"
                 />
@@ -99,6 +105,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
                 android:scaleType="fitEnd"
+                android:background="@null"
                 android:src="@mipmap/wwh_event_star_3"></ImageView>
 
         </LinearLayout>
@@ -119,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="指导老师姓名"
                 android:id="@+id/event_newest_teacther_tv"
-                android:textSize="18sp"/>
+                android:textSize="14sp"/>
         </LinearLayout>
     </RelativeLayout>
     <ImageView

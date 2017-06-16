@@ -12,6 +12,11 @@ import com.example.administrator.burning.R;
 import com.example.administrator.burning.beans.OrderEvent;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,19 +66,44 @@ public class NewestAdapter extends BaseAdapter {
         int timeIndex=time.indexOf(":");
         viewHolder.tv_day.setText(time.substring(dayIndex+1,dayIndex+3));
         viewHolder.tv_month.setText(time.substring(dayIndex-2,dayIndex));
-        viewHolder.tv_week.setText(time.substring(timeIndex-2,timeIndex+3));
+        viewHolder.tv_week.setText(getWeek(time)+" "+time.substring(timeIndex-2,timeIndex+3));
         Uri uri=Uri.parse(listBean.getPhoto().getUrl().toString());
         viewHolder.sdv.setImageURI(uri);
         Uri uri1=Uri.parse(listBean.getTeacher().getAvatar().toString());
         viewHolder.sdv_coin.setImageURI(uri1);
         viewHolder.tv_address.setText(listBean.getLocation().getName());
-        viewHolder.tv_distance.setText(listBean.getDistance()+"");
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        viewHolder.tv_distance.setText(decimalFormat.format((float)listBean.getDistance()/10000000)+"km");
         viewHolder.tv_price.setText("￥"+listBean.getPrice());
         viewHolder.tv_teacher.setText(listBean.getTeacher().getName());
         viewHolder.tv_user.setText(listBean.getTeacher().getNickname());
         viewHolder.tv_user_type.setText(listBean.getTopic());
-
         return convertView;
+    }
+    public  String getWeek(String string){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ParsePosition pos = new ParsePosition(0);
+        Date date = formatter.parse(string, pos);
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        int hour=c.get(Calendar.DAY_OF_WEEK);
+        String str = hour+"";
+        if("1".equals(str)){
+            str = "星期日";
+        }else if("2".equals(str)){
+            str = "星期一";
+        }else if("3".equals(str)){
+            str = "星期二";
+        }else if("4".equals(str)){
+            str = "星期三";
+        }else if("5".equals(str)){
+            str = "星期四";
+        }else if("6".equals(str)){
+            str = "星期五";
+        }else if("7".equals(str)){
+            str = "星期六";
+        }
+        return str;
     }
     class ViewHolder{
         private final TextView tv_day;

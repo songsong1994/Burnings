@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
 
     android:orientation="vertical">
     <RelativeLayout
@@ -67,13 +68,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/order_event_detail_start_time"
                     android:text="日期"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/order_event_detail_enroll_num"
                     android:text="报名人数"
+                    android:textSize="10sp"
                     android:layout_marginRight="20dp"
                     android:gravity="right"
                     android:layout_marginLeft="20dp"
@@ -81,11 +83,14 @@
             </LinearLayout>
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
                 android:layout_height="400dp"
 
                 android:id="@+id/order_event_detail_sdv"
                 />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#BEBEBE"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
@@ -110,6 +115,10 @@
                     android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#BEBEBE"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -132,6 +141,7 @@
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:text="+关注"
+
                     android:onClick="onClick"
                     android:id="@+id/order_event_detail_follow"
                     android:textSize="14sp"
@@ -142,7 +152,10 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"/>
             </RelativeLayout>
-
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#BEBEBE"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -162,6 +175,10 @@
                     android:text="2017年 06月 14号 周三 12:00"/>
 
             </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#BEBEBE"/>
             <RelativeLayout
                 android:onClick="onClick"
                 android:layout_width="match_parent"
@@ -200,13 +217,22 @@
                     android:layout_marginRight="20dp"
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:text="燃 | 提示"/>
+                android:text="| 燃提示"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
 
             <TextView
                 android:id="@+id/order_event_detail_hint"
@@ -215,13 +241,21 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="本活动开始前一天晚上8点报名未满5人将会自动取消。\n所有活动不支持任何形式的现金退款，只可退至本平台余额账户。\n如在活动开始前24小时前取消预约，您支付的金额将退还至平台余额账户供未来预约使用。\n绘画区域不可携带8岁以下儿童入场。\n任何疑问请拨打：400-8088-303。\n请仔细阅读本条款，点击同意后即可预约活动。" />
-
-            <Button
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:gravity="center"
                 android:text="400-8088-303"
                 android:drawableTop="@mipmap/phone_icon"
                 android:textColor="#000000"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -230,6 +264,10 @@
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical"
                 android:text=" | 相关标签"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -238,6 +276,10 @@
                 android:layout_margin="20dp"
                 android:gravity="center_vertical"
                 android:textColor="#FFFFFF"
+                android:background="#BEBEBE"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
                 android:background="#BEBEBE"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -249,6 +291,10 @@
                 android:layout_marginLeft="20dp"
 
                 />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BEBEBE"/>
             <ImageView
                 android:layout_width="50dp"
                 android:layout_marginLeft="20dp"
