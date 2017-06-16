@@ -69,8 +69,8 @@ public class HomeFragment extends Fragment implements Callback<HomeListData> {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), StatusDetailsActivity.class);
-                intent.putExtra("id",response.body().getData().getList().get(position).getId());
-                intent.putExtra("img",response.body().getData().getList().get(position).getUser().getAvatar());
+                intent.putExtra("id",response.body().getData().getList().get(position-1).getId());
+                intent.putExtra("img",response.body().getData().getList().get(position-1).getUser().getAvatar());
                 getActivity().startActivity(intent);
             }
         });
