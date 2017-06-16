@@ -3,6 +3,8 @@ package com.example.administrator.burning.custom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -46,6 +48,7 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
     private TopRecycleAdapter adapter;
     private Context context;
     private List<Space.DataBean.TeachersBean> data;
+    private int pagerIndex =0;
     //--------------------------------
     private  ViewPager pager;
     private  TopPagerAdapter adapterPager;
@@ -58,6 +61,16 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
     private FrameLayout moreArtist;
     private FrameLayout moreSubject;
     private FrameLayout moreCircle;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.what==1) {
+                pagerIndex++;
+                pager.setCurrentItem(pagerIndex%5);
+                handler.sendEmptyMessageDelayed(1,3000);
+            }
+        }
+    };
 
     public TopView(@NonNull Context context) {
         super(context);
@@ -159,6 +172,7 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
 
         adapterPager = new TopPagerAdapter(context,datas);
         pager.setAdapter(adapterPager);
+        handler.sendEmptyMessageDelayed(1,3000);
     }
 
     @Override
@@ -174,6 +188,7 @@ public class TopView extends FrameLayout implements Callback<Space>, ViewPager.O
 
     @Override
     public void onPageSelected(int position) {
+        pagerIndex=position;
         for (ImageView img : imgs) {
             img.setImageResource(R.drawable.gray_point);
         }

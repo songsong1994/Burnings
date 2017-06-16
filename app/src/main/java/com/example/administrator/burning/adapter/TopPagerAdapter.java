@@ -22,7 +22,6 @@ public class TopPagerAdapter extends PagerAdapter{
     public TopPagerAdapter(Context context,List<SimpleDraweeView> list) {
         this.data = list;
         this.context = context;
-
     }
 
 

@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         group = (RadioGroup) findViewById(R.id.layout_main);
         group.setOnCheckedChangeListener(this);
         group = (RadioGroup) findViewById(R.id.layout_main);
