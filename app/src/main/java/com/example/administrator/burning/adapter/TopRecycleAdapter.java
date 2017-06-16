@@ -1,6 +1,7 @@
 package com.example.administrator.burning.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.administrator.burning.ArtistActivity;
 import com.example.administrator.burning.R;
 import com.example.administrator.burning.bean.Space;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -21,7 +23,7 @@ import java.util.List;
  * Created by Administrator on 2017/6/12.
  */
 
-public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.HomeViewHolder> {
+public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.HomeViewHolder>  {
 
     private List<Space.DataBean.TeachersBean> data;
     private Context context;
@@ -30,6 +32,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
     public TopRecycleAdapter(List<Space.DataBean.TeachersBean> data, Context context) {
         this.data = data;
         this.context = context;
+
     }
 
     @Override
@@ -40,7 +43,18 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
     }
 
     @Override
-    public void onBindViewHolder(HomeViewHolder holder, int position) {
+    public void onBindViewHolder(HomeViewHolder holder, final int position) {
+
+
+        holder.recyclerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ArtistActivity.class);
+                String ids = data.get(position).getId();
+                intent.putExtra("userId",ids);
+                context.startActivity(intent);
+            }
+        });
         List<Space.DataBean.Artifact> artifacts = data.get(position).getArtifacts();
         holder.draweeView.setImageURI(data.get(position).getAvatar());
         for (int i = 0; i < 3; i++) {
@@ -74,6 +88,8 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
         return data.size();
     }
 
+
+
     public class HomeViewHolder extends RecyclerView.ViewHolder {
         public SimpleDraweeView draweeView;
         public TextView name;
@@ -81,6 +97,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
         public TextView eventNum;
         public TextView sign;
         public LinearLayout sdv_layout;
+        public LinearLayout recyclerLayout;
         public HomeViewHolder(View v) {
             super(v);
             draweeView= (SimpleDraweeView) v.findViewById(R.id.avatar);
@@ -89,6 +106,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<TopRecycleAdapter.Ho
             eventNum = (TextView) v.findViewById(R.id.eventNum);
             sign = (TextView) v.findViewById(R.id.sign);
             sdv_layout = (LinearLayout) v.findViewById(R.id.sdv_layout);
+            recyclerLayout = (LinearLayout) v.findViewById(R.id.recycle_layout);
         }
     }
 }

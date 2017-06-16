@@ -74,6 +74,7 @@
             android:text="《"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:id="@+id/artist_artifact_right"
             />
         <TextView
             android:id="@+id/artifact_rec_body"
@@ -92,6 +93,7 @@
             android:text="》"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:id="@+id/artist_artifact_left"
             />
         <RelativeLayout
             android:layout_width="match_parent"

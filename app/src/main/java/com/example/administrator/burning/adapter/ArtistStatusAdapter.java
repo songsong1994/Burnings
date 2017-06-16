@@ -43,8 +43,10 @@ public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapte
     @Override
     public void onBindViewHolder(statusViewHolder holder, int position) {
         TecherStatus.DataBean.ListBean bean = list.get(position);
-        Uri uri = Uri.parse(img);
-        holder.img.setImageURI(uri);
+        if (img != null) {
+            Uri uri = Uri.parse(img);
+            holder.img.setImageURI(uri);
+        }
         if (bean.getPhoto() != null) {
             Uri uri1 = Uri.parse(bean.getPhoto().getUrl());
             holder.bigimg.setImageURI(uri1);
@@ -52,11 +54,13 @@ public class ArtistStatusAdapter extends RecyclerView.Adapter<ArtistStatusAdapte
         if (bean.getUser() != null) {
             holder.name.setText(bean.getUser().getName());
         }
-        String time=bean.getCreated();
-        StringBuffer buffer = new StringBuffer(time);
-        StringBuffer delete = buffer.delete(0, 5);
-        StringBuffer delete1 = delete.delete(11, 14);
-        holder.date.setText(delete1.toString());
+        if (bean.getCreated() != null) {
+            String time=bean.getCreated();
+            StringBuffer buffer = new StringBuffer(time);
+            StringBuffer delete = buffer.delete(0, 5);
+            StringBuffer delete1 = delete.delete(11, 14);
+            holder.date.setText(delete1.toString());
+        }
         holder.liked.setText(bean.getLikeNum()+"");
         holder.mark.setText(bean.getMarkNum()+"");
         holder.comment.setText(bean.getCommentNum() + "");

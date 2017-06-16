@@ -49,30 +49,31 @@
             android:visibility="invisible"
             android:textColor="#000000"/>
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
 
-            android:id="@+id/event_newest_but"
-            android:text="最新"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/event_past_but"
-            android:text="往期"/>
-    </LinearLayout>
-    <FrameLayout
-        android:id="@+id/event_fragment_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/event_newest_but"
+                    android:text="最新"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/event_past_but"
+                    android:text="往期"/>
+            </LinearLayout>
+            <FrameLayout
+                android:id="@+id/event_fragment_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
 
-    </FrameLayout>
+
 
 
 

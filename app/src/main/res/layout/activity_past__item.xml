@@ -19,8 +19,6 @@
                 android:layout_height="400dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                fresco:placeholderImage="@mipmap/wwh_event_2"
-                fresco:placeholderImageScaleType="fitCenter"
                 android:scaleType="fitXY"/>
             <TextView
                 android:id="@+id/past_item_title"

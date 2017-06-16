@@ -49,7 +49,6 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
     @Override
     public void onResponse(Call<TeacherIntroduce> call, Response<TeacherIntroduce> response) {
         data = response.body().getData();
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (data.getEventNum() > 0) {
             ArtistFragment fragment = new ArtistFragment();
@@ -146,7 +145,7 @@ public class ArtistActivity extends AppCompatActivity implements Callback<Teache
                 }
                 break;
             case R.id.fragment_artifact:
-                if (data.getStatusNum() > 0) {
+                if (data.getArtifactNum() > 0) {
                     ArtistArtifactFragment artifact = new ArtistArtifactFragment();
                     Bundle bundleStatus = new Bundle();
                     bundleStatus.putString("userId",userId);
