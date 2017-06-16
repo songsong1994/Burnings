@@ -108,7 +108,9 @@ public class OrderEventDetailActivity extends AppCompatActivity implements Callb
         if (data.getBookedUsers() !=null) {
            sdv_user.setVisibility(View.GONE);
            sdv_user_rv.setVisibility(View.VISIBLE);
-            sdv_user_rv.setAdapter(new OrderUserRecycleAdapter(data.getBookedUsers(),this));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                sdv_user_rv.setAdapter(new OrderUserRecycleAdapter(data.getBookedUsers(),this));
+            }
 
         }
     }
