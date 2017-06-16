@@ -65,7 +65,9 @@ public class ArtistListActivity extends AppCompatActivity implements Callback<Te
             }
         });
     }
-
+    public void back(View view){
+        this.finish();
+    }
     @Override
     public void onResponse(Call<TeacherList> call, Response<TeacherList> response) {
         list = response.body().getData().getList();
